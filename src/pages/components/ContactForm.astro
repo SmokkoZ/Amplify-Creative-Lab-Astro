@@ -1,137 +1,151 @@
----
-interface Props {
-  id?: string;
-  heading?: string;
-  formName?: string;
-  action?: string;
-  sectionClass?: string;
+---  
+interface Props {  
+  id?: string;  
+  heading?: string;  
+  formName?: string;  
+  action?: string;  
+  sectionClass?: string;  
 }
 
-const {
-  id = "work-with-us",
-  heading = "GET IN TOUCH",
-  formName = "contact",
-  action = "/thank-you",
-  sectionClass = "",
-} = Astro.props;
----
+const {  
+  id = "work-with-us",  
+  heading = "GET IN TOUCH",  
+  formName = "contact",  
+  action = "/thank-you",  
+  sectionClass = "",  
+} = Astro.props;  
+---  
 
-<section class={`contact-section ${sectionClass}`} id={id}>
-  <div class="contact-inner">
-    <h2 class="contact-heading">{heading}</h2>
+<section class={`contact-section ${sectionClass}`} id={id}>  
+  <div class="contact-inner">  
+    <h2 class="contact-heading">{heading}</h2>  
 
-    <form
-      class="contact-form"
-      name={formName}
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      action={action}
-      aria-label={heading}
-    >
-      <!-- Netlify form name -->
-      <input type="hidden" name="form-name" value={formName} />
+    <form  
+      class="contact-form"  
+      name={formName}  
+      method="POST"  
+      data-netlify="true"  
+      netlify-honeypot="bot-field"  
+      action={action}  
+      aria-label={heading}  
+    >  
+      <!-- Netlify form name -->  
+      <input type="hidden" name="form-name" value={formName} />  
 
-      <!-- Honeypot field (spam protection) -->
-      <p class="contact-form-honeypot">
-        <label>
-          Don’t fill this out if you're human:
-          <input name="bot-field" />
-        </label>
-      </p>
+      <!-- Honeypot field (spam protection) -->  
+      <p class="contact-form-honeypot">  
+        <label>  
+          Don’t fill this out if you're human:  
+          <input name="bot-field" />  
+        </label>  
+      </p>  
 
-      <div class="contact-form-grid">
-        <!-- Name -->
-        <div class="form-field form-field-half">
-          <label class="form-label" for={`${id}-name`}>Name</label>
-          <input
-            class="form-input"
-            id={`${id}-name`}
-            name="name"
-            type="text"
-            placeholder="Enter your name"
-            required
-          />
-        </div>
+      <div class="contact-form-grid">  
+        <!-- Name -->  
+        <div class="form-field form-field-half">  
+          <label class="form-label" for={`${id}-name`}>Name</label>  
+          <input  
+            class="form-input"  
+            id={`${id}-name`}  
+            name="name"  
+            type="text"  
+            placeholder="Enter your name"  
+            required  
+          />  
+        </div>  
 
-        <!-- Email -->
-        <div class="form-field form-field-half">
-          <label class="form-label" for={`${id}-email`}>Email</label>
-          <input
-            class="form-input"
-            id={`${id}-email`}
-            name="email"
-            type="email"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
+        <!-- Email -->  
+        <div class="form-field form-field-half">  
+          <label class="form-label" for={`${id}-email`}>Email</label>  
+          <input  
+            class="form-input"  
+            id={`${id}-email`}  
+            name="email"  
+            type="email"  
+            placeholder="Enter your email"  
+            required  
+          />  
+        </div>  
 
-        <!-- Phone -->
-        <div class="form-field form-field-half">
-          <label class="form-label" for={`${id}-phone`}>Phone number</label>
-          <input
-            class="form-input"
-            id={`${id}-phone`}
-            name="phone"
-            type="tel"
-            placeholder="Enter your phone number"
-            required
-            pattern="[0-9()#&+*-=.]+"
-            title="Only numbers and phone characters (#, -, *, etc) are accepted."
-          />
-        </div>
+        <!-- Phone -->  
+        <div class="form-field form-field-half">  
+          <label class="form-label" for={`${id}-phone`}>Phone number</label>  
+          <input  
+            class="form-input"  
+            id={`${id}-phone`}  
+            name="phone"  
+            type="tel"  
+            placeholder="Enter your phone number"  
+            required  
+            pattern="[0-9()#&+*-=.]+"  
+            title="Only numbers and phone characters (#, -, *, etc) are accepted."  
+          />  
+        </div>  
 
-        <!-- Event date -->
-        <div class="form-field form-field-half">
-          <label class="form-label" for={`${id}-event-date`}>Event date</label>
-          <input
-            class="form-input"
-            id={`${id}-event-date`}
-            name="event_date"
-            type="date"
-            placeholder="Enter event date"
-            required
-          />
-        </div>
+        <!-- Service dropdown (new) -->  
+        <div class="form-field form-field-half">  
+          <label class="form-label" for={`${id}-service`}>What service are you looking for?</label>  
+          <select  
+            class="form-input"  
+            id={`${id}-service`}  
+            name="service"  
+          >  
+            <option value="" selected disabled hidden>Select a service</option>  
+            <option value="event photography">Event Photography</option>  
+            <option value="food photography">Food Photography</option>  
+            <option value="product photography">Product Photography</option>  
+            <option value="portrait photography">Portrait Photography</option>  
+            <option value="website development">Website Development</option>  
+          </select>  
+        </div>  
 
-        <!-- Message -->
-        <div class="form-field form-field-full">
-          <label class="form-label" for={`${id}-message`}>
-            How can we help you?
-          </label>
-          <textarea
-            class="form-textarea"
-            id={`${id}-message`}
-            name="message"
-            rows="4"
-            placeholder="How can we help you?"
-          ></textarea>
-        </div>
+        <!-- Event date (optional now) -->  
+        <div class="form-field form-field-half">  
+          <label class="form-label" for={`${id}-event-date`}>Event date (optional)</label>  
+          <input  
+            class="form-input"  
+            id={`${id}-event-date`}  
+            name="event_date"  
+            type="date"  
+            placeholder="Enter event date"  
+          />  
+        </div>  
 
-        <!-- Optional extra fields slot -->
-        <slot />
-      </div>
+        <!-- Message -->  
+        <div class="form-field form-field-full">  
+          <label class="form-label" for={`${id}-message`}>How can we help you?</label>  
+          <textarea  
+            class="form-textarea"  
+            id={`${id}-message`}  
+            name="message"  
+            rows="4"  
+            placeholder="How can we help you?"  
+          ></textarea>  
+        </div>  
 
-      <!-- Submit -->
-      <div class="form-actions">
-        <button class="form-button" type="submit">
-          <span class="form-button-inner">
-            <span class="form-button-icon" aria-hidden="true">
-              <svg
-                class="form-button-svg"
-                viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"
-                />
-              </svg>
-            </span>
-            <span class="form-button-text">Submit Form</span>
-          </span>
-        </button>
-      </div>
-    </form>
-  </div>
+        <!-- Optional extra fields slot -->  
+        <slot />  
+      </div>  
+
+      <!-- Submit -->  
+      <div class="form-actions">  
+        <button class="form-button" type="submit">  
+          <span class="form-button-inner">  
+            <span class="form-button-icon" aria-hidden="true">  
+              <svg  
+                class="form-button-svg"  
+                viewBox="0 0 512 512"  
+                xmlns="http://www.w3.org/2000/svg"  
+              >  
+                <path  
+                  d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"  
+                />  
+              </svg>  
+            </span>  
+            <span class="form-button-text">Submit Form</span>  
+          </span>  
+        </button>  
+      </div>  
+    </form>  
+  </div>  
 </section>

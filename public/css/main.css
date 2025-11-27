@@ -782,7 +782,7 @@ body.no-scroll {
   align-items: center;
   /* using flex-start for left-aligned text */
   padding: 50px 50px;
-  gap: 20px
+  gap: 30px
 }
 
 
@@ -802,7 +802,7 @@ body.no-scroll {
   /* Elementor sets line-height: 0 on this widget, but that's
      risky outside that environment (text can clip).
      Using a tight line-height instead to visually match. */
-  line-height: 0.3;
+  line-height: 1;
 }
 
 
@@ -815,8 +815,9 @@ body.no-scroll {
   line-height: 1;
   color: var(--e-global-color-primary, #FEF8EB);
 
+
   /* Match Elementor's tighter paragraph spacing */
-  margin-bottom: 20px;
+  
 }
 
 

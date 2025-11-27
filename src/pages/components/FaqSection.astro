@@ -1,0 +1,191 @@
+---
+const faqs = [
+    {
+        question: "How much do your photography sessions cost?",
+        answer: "Every project is a little different, but we offer clear, upfront pricing based on the type of shoot (food, product or event), time required and deliverables. Tell us a bit about your project and we’ll send you a custom quote with no surprises.",
+    },
+    {
+        question: "Do you travel to restaurants, venues or client locations?",
+        answer: "Yes. We regularly shoot on location at restaurants, cafés, commercial kitchens, studios and event venues around Perth. Travel within the Perth metro area is usually included—just share your location when you enquire.",
+    },
+    {
+        question: "How long does a typical photo session take?",
+        answer: "For food and product photography, most sessions run between 2–4 hours depending on the number of dishes or items. Event coverage usually starts from 2 hours and can be extended as needed.",
+    },
+    {
+        question: "When will I receive my edited photos?",
+        answer: "For most projects, you’ll receive your edited images within 7–10 business days. If you have a specific launch date or campaign deadline, let us know and we’ll do our best to prioritise your project.",
+    },
+    {
+        question: "Do you provide both RAW and edited images?",
+        answer: "We deliver carefully edited, high-resolution images ready for web, social and print. RAW files are not included by default, but can be provided for certain commercial projects on request.",
+    },
+    {
+        question: "How do I book a session?",
+        answer: "Simply send us an enquiry through the contact form with a few details about your project (type of shoot, location, preferred dates), and we’ll get back to you with availability, pricing and next steps.",
+    },
+];
+---
+
+<section class="faq-section" aria-labelledby="faq-heading">
+    <div class="faq-inner">
+        <!-- LEFT COLUMN: heading -->
+        <div class="faq-column faq-column--intro">
+            <h2 id="faq-heading" class="faq-title">FAQ</h2>
+        </div>
+
+        <!-- RIGHT COLUMN: cards -->
+        <div class="faq-column faq-column--questions">
+            <div class="faq-list">
+                {
+                    faqs.map((item, index) => (
+                        <details
+                            class="faq-item"
+                            {...(index === 0 ? { open: true } : {})}
+                        >
+                            <summary class="faq-question">
+                                <span>{item.question}</span>
+                                <span class="faq-icon" aria-hidden="true">
+                                    +
+                                </span>
+                            </summary>
+                            <p class="faq-answer">{item.answer}</p>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-section {
+        --color-bg: #fef8eb;
+        --color-text: #93897e;
+        --color-heading: #152705;
+
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        padding: clamp(3rem, 6vw, 4.5rem);
+    }
+
+    .faq-inner {
+        max-width: 1900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+        gap: clamp(2rem, 4vw, 3rem);
+        align-items: center; /* ⬅️ left column is NOT vertically centered */
+        justify-content: center;
+    }
+
+    .faq-column--intro {
+    padding-right: clamp(0.5rem, 2vw, 1.5rem);
+    display: flex;              /* make the column a flex container */
+    align-items: center;        /* vertical centering */
+    justify-content: flex-start;    /* horizontal centering */
+    text-align: center;         /* center the text inside the h2 */
+}
+
+    .faq-title {
+        color: var(--color-text);
+        font-size: clamp(8rem, 10vw, 11rem);
+        letter-spacing: 0.23em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-family: "Abril Fatface", Sans-serif;
+    }
+
+    .faq-title span {
+        display: block;
+    }
+
+    .faq-title span + span {
+        margin-top: 0.1em;
+    }
+
+    /* RIGHT COLUMN – center the cards */
+    .faq-column--questions {
+        align-self: center; /* ⬅️ vertically center this column in the section */
+        display: flex;
+        align-items: center; /* ⬅️ center content vertically inside the column */
+        justify-content: flex-end;
+    }  
+
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        max-width: 60rem; /* width of the cards stack */
+    }
+
+    .faq-item {
+        border-radius: 0.6rem;
+        background: var(--color-bg);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.65rem 1.5rem 0.65rem 1rem;
+    }
+
+    .faq-item[open] {
+        background: var(--color-bg);
+    }
+
+    .faq-question {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--color-text);
+    }
+
+    .faq-question::-webkit-details-marker {
+        display: none;
+    }
+
+    .faq-icon {
+        margin-left: auto;
+        font-size: 1rem;
+        transform-origin: center;
+        transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] .faq-icon {
+        transform: rotate(45deg); /* + becomes × */
+    }
+
+    .faq-answer {
+        margin-top: 0.45rem;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: var(--color-text);
+    }
+
+    .faq-question:focus-visible {
+        outline: 2px solid var(--color-heading);
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 800px) {
+        .faq-inner {
+            grid-template-columns: 1fr;
+        }
+
+        .faq-column--intro {
+            padding-right: 0;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .faq-section {
+            padding-inline: 1.25rem;
+        }
+
+        .faq-item {
+            padding: 0.85rem 0.9rem;
+        }
+    }
+</style>
