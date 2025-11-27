@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./layouts/BaseLayout.astro";
+import ContactForm from "./components/ContactForm.astro";
 
 const pageTitle = "Perth Food Photographer | AmplifyCreativeLab";
 const pageDescription =
@@ -151,16 +152,12 @@ const pageDescription =
     </section>
 
     <section class="hero-slideshow">
-  <div class="hero-slideshow-slide hero-slideshow-slide-1"></div>
-  <div class="hero-slideshow-slide hero-slideshow-slide-2"></div>
-  <div class="hero-slideshow-slide hero-slideshow-slide-3"></div>
-  <div class="hero-slideshow-slide hero-slideshow-slide-4"></div>
-</section>
-
-
-
-    <section class="cta-contact">
-      <!-- request a quote CTA -->
+      <div class="hero-slideshow-slide hero-slideshow-slide-1"></div>
+      <div class="hero-slideshow-slide hero-slideshow-slide-2"></div>
+      <div class="hero-slideshow-slide hero-slideshow-slide-3"></div>
+      <div class="hero-slideshow-slide hero-slideshow-slide-4"></div>
     </section>
+
+    <ContactForm />
   </main>
 </BaseLayout>
