@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 
 const {
     title = "Perth Food Photographer | AmplifyCreativeLab",
@@ -83,7 +84,7 @@ const GA_MEASUREMENT_ID = "G-4KRYBTPCTN";
             gtag("config", GA_MEASUREMENT_ID);
         </script>
     </head>
-
+<CookieConsent />
     <body>
         <Header />
 
