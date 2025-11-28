@@ -1,0 +1,222 @@
+---
+interface PortfolioItem {
+  src: string;
+  alt: string;
+  title: string;
+}
+
+const portfolioItems: PortfolioItem[] = [
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Beef-Cheek-Ravioli_01-scaled.jpg",
+    alt: "Food styling and photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/WA-Lobster-Linguine_01-scaled.jpg",
+    alt: "Restaurant marketing Perth",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Spaghertti-Carbonara_01-scaled.jpg",
+    alt: "Perth restaurant photographer",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Chill-Mussels_01-scaled.jpg",
+    alt: "Restaurant menu photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Beef-Check-Ravioli_02-scaled.jpg",
+    alt: "Food styling and photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Orecchiette-Salsiccia-Broccoli_02-scaled.jpg",
+    alt: "Perth restaurant photographer",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Pork-Belly-Bites_02-scaled.jpg",
+    alt: "Restaurant menu photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Linguine-Clams-Prawns_02-scaled.jpg",
+    alt: "Food styling and photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/0N2A1571-Edit.jpg",
+    alt: "Food styling and photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/0N2A1903-Edit.jpg",
+    alt: "Food styling and photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/FISH-OF-THE-DAY_02-scaled.jpg",
+    alt: "Restaurant menu photography",
+    title: "Food Photography",
+  },
+  {
+    src: "https://amplifycreativelab.com/wp-content/uploads/2024/07/Spaghertti-Carbonara_02-scaled.jpg",
+    alt: "Perth restaurant photographer",
+    title: "Food Photography",
+  },
+  // 👉 continue adding all remaining images here
+  // {
+  //   src: "FULL_URL",
+  //   alt: "Descriptive alt",
+  //   title: "Food Photography | Product Photography | Restaurant Photography",
+  // },
+];
+---
+
+<section class="portfolio-section" aria-label="Photography portfolio gallery">
+  <div class="portfolio-inner">
+    <div class="portfolio-grid">
+      {portfolioItems.map((item) => (
+        <a
+          class="portfolio-item"
+          href={item.src}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <figure class="portfolio-item-figure">
+            <img
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              decoding="async"
+              class="portfolio-item-image"
+            />
+            <figcaption class="portfolio-item-overlay">
+              <span class="portfolio-item-title">{item.title}</span>
+              <span class="portfolio-item-label">- view -</span>
+            </figcaption>
+          </figure>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio-section {
+    background-color: #000000;
+    padding-block: 3rem;
+  }
+
+  .portfolio-inner {
+    /* mimic Elementor boxed container with max-width ~1490px */
+    width: min(1490px, 100% - 2 * 1.5rem);
+    margin-inline: auto;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0; /* Elementor had 0 gap */
+  }
+
+  .portfolio-item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-item-figure {
+    margin: 0;
+    position: relative;
+  }
+
+  .portfolio-item-image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1; /* matches Elementor aspect_ratio 1:1 */
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 250ms ease-out;
+  }
+
+  .portfolio-item-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+    transition: opacity 250ms ease-out;
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  .portfolio-item-title {
+    font-family: var(--font-heading, "Abril Fatface", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .portfolio-item-label {
+    margin-top: 0.25rem;
+    font-family: var(--font-body, "Montserrat", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
+  .portfolio-item:hover .portfolio-item-image,
+  .portfolio-item:focus-visible .portfolio-item-image {
+    transform: scale(1.04);
+  }
+
+  .portfolio-item:hover .portfolio-item-overlay,
+  .portfolio-item:focus-visible .portfolio-item-overlay {
+    opacity: 1;
+  }
+
+  .portfolio-item:focus-visible {
+    outline: 2px solid var(--color-accent, #f3b34c);
+    outline-offset: 2px;
+  }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .portfolio-inner {
+      width: min(100% - 2 * 1rem, 100%);
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .portfolio-item-title {
+      font-size: 0.85rem;
+    }
+
+    .portfolio-item-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+    }
+  }
+</style>

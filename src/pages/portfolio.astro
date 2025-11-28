@@ -1,0 +1,15 @@
+---
+import BaseLayout from "./layouts/BaseLayout.astro";
+import PortfolioGallery from "./components/portfolio/PortfolioGallery.astro";
+
+const pageTitle = "Perth Food Photographer | AmplifyCreativeLab Portfolio";
+const pageDescription =
+  "Perth food photographer specializing in restaurant imagery for menus, websites & socials.";
+
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="page-home">
+    <PortfolioGallery />
+    </main>
+</BaseLayout>
