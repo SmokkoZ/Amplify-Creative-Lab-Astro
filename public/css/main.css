@@ -40,6 +40,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 body {
@@ -47,12 +48,17 @@ body {
   color: var(--color-text);
   font-family: var(--font-body);
   overflow-x: hidden;
-  height: 2000px;
-  /*just for testing*/
+  display: flex;
+  flex-direction: column;
 }
 
 body.no-scroll {
   overflow: hidden;
+}
+
+main {
+  flex: 1;
+  display: block;
 }
 
 

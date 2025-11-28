@@ -1,0 +1,291 @@
+---
+import BaseLayout from "./layouts/BaseLayout.astro";
+
+const pageTitle = "Thank you | AmplifyCreativeLab";
+const pageDescription =
+  "Thanks for getting in touch with Amplify Creative Lab. We’ll reply as soon as we can.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="thankyou-page">
+    <section class="thankyou-hero">
+      <div class="thankyou-inner">
+        <!-- LEFT: text / content -->
+        <div class="thankyou-content">
+          <div class="thankyou-badge">
+            <span class="thankyou-badge-icon">✓</span>
+            <span class="thankyou-badge-text">Enquiry received</span>
+          </div>
+
+          <h1 class="thankyou-title">Thank you for your message!</h1>
+
+          <p class="thankyou-text">
+            We’ve received your enquiry and will get back to you as soon as
+            possible.
+          </p>
+
+          <p class="thankyou-text subtle">
+            Most enquiries receive a reply within 1 business day.
+          </p>
+
+          <div class="thankyou-steps">
+            <h2 class="thankyou-steps-title">What happens next</h2>
+            <ol class="thankyou-steps-list">
+              <li>We review your brief and project details.</li>
+              <li>We confirm our availability for your dates.</li>
+              <li>We come back to you with next steps and a clear quote.</li>
+            </ol>
+          </div>
+
+          <div class="thankyou-actions">
+            <a href="/" class="btn-primary">Back to homepage</a>
+            <a href="/portfolio" class="btn-ghost">View our portfolio</a>
+          </div>
+        </div>
+
+        <!-- RIGHT: image / visual -->
+        <aside class="thankyou-visual" aria-hidden="true">
+          
+          <div class="thankyou-visual-inner">
+            <p class="thankyou-visual-kicker">Perth food & product photography</p>
+            <p class="thankyou-visual-text">
+              While you wait, explore how we’ve helped cafés, restaurants and
+              brands tell their story with scroll-stopping visuals.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .thankyou-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem);
+    background-color: var(--color-bg, #fef8eb);
+  }
+
+  .thankyou-hero {
+    width: 100%;
+    
+  }
+
+  .thankyou-inner {
+    max-width: 1900px;
+    height:60vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 3rem);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  /* LEFT SIDE */
+
+  .thankyou-content {
+    padding: clamp(2.25rem, 4vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   
+  }
+
+  .thankyou-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(36, 54, 15, 0.04);
+   
+  }
+
+  .thankyou-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: var(--color-accent, #4a2e1c);
+    color: #fff;
+    font-size: 0.85rem;
+  }
+
+  .thankyou-badge-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent, #4a2e1c);
+  }
+
+  .thankyou-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.2vw, 2.6rem);
+    color: var(--color-heading);
+   
+  }
+
+  .thankyou-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+  }
+
+  .thankyou-text.subtle {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.55);
+    margin-bottom: 1.4rem;
+  }
+
+  .thankyou-steps {
+    margin-top: 1.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .thankyou-steps-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-accent, #4a2e1c);
+    margin-bottom: 0.6rem;
+  }
+
+  .thankyou-steps-list {
+    list-style: decimal;
+    padding-left: 1.3rem;
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .thankyou-steps-list li + li {
+    margin-top: 0.35rem;
+  }
+
+  .thankyou-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 3rem;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.6rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: transform 0.12s ease, box-shadow 0.12s ease,
+      background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--color-accent, #4a2e1c);
+    color: #fff;
+    border: 1px solid var(--color-accent, #4a2e1c);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-accent, #4a2e1c);
+    border: 1px solid rgba(74, 46, 28, 0.35);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(74, 46, 28, 0.06);
+    border-color: var(--color-accent, #4a2e1c);
+    transform: translateY(-1px);
+  }
+
+  /* RIGHT SIDE */
+
+  .thankyou-visual {
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    background-image: url("/images/thank-you/thank-you-hero.jpg"); /* swap with real image */
+    background-size: cover;
+    background-position: center;
+  }
+
+  
+
+  .thankyou-visual-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 2.2rem 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fef8eb;
+  }
+
+  .thankyou-visual-kicker {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+    color: black;
+    font-weight: bold;
+  }
+
+  .thankyou-visual-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 22rem;
+     color: black;
+     font-weight: bold;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 768px) {
+    .thankyou-inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .thankyou-content {
+      padding: 2rem 1.6rem 2.25rem;
+    }
+
+    .thankyou-visual {
+      min-height: 200px;
+    }
+
+    .thankyou-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
