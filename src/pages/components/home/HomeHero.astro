@@ -1,0 +1,132 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span>GROWING A BUSINESS ISN'T EASY,</span>
+        <span>BUT WE'VE GOT YOUR BACK.</span>
+      </h1>
+
+      <a href="#work-with-us" class="btn btn--primary hero-cta">
+        WORK WITH US
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* HOMEPAGE - HERO */
+
+  /* Outer section: background + vertical centering */
+  .hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+
+    background-image: url("/images/hero/hero-banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Inner container: controls left offset & max width */
+  .hero-inner {
+    width: 100%;
+    max-width: var(--container-max);
+    /* was 1490px */
+    margin: 0;
+    /* Removed auto centering to allow left positioning */
+    display: flex;
+    justify-content: center;
+    /* keep block left */
+    align-items: center;
+    /* vertical center in hero */
+  }
+
+  /* New wrapper: this is what we center inside */
+  .hero-content {
+    max-width: 600px;
+    /* close to original h2 width (you can tweak) */
+    text-align: center;
+    /* centers text AND button horizontally */
+    margin-left: -10rem;
+  }
+
+  /* Heading */
+  .hero-title {
+    font-family: var(--font-body);
+    font-size: 30px;
+    font-weight: 300;
+    /* match original */
+    line-height: 43px;
+    /* match original */
+    letter-spacing: normal;
+    /* original was normal */
+    word-spacing: 5px;
+    /* original */
+    color: var(--color-heading);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .hero-title span {
+    display: block;
+    /* each span = a line */
+    font: inherit;
+    /* don't override anything */
+  }
+
+  /* Button */
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn--primary {
+    background-color: var(--color-accent);
+    /* was #24360f */
+    color: var(--color-bg);
+    /* was #fef8eb */
+    border-radius: var(--radius-pill);
+    /* was 25px */
+    padding: 10px 40px;
+
+    font-size: 19px;
+    line-height: 19px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+
+    border: none;
+    transition: all var(--transition-fast);
+    /* was all 0.3s ease */
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-accent-hover);
+    /* was #7a6753 */
+    color: var(--color-bg);
+    /* was #fef8eb */
+  }
+
+  /* Mobile tweak */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+      padding: 40px 20px;
+    }
+
+    .hero-inner {
+      padding: 20px;
+    }
+
+    .hero-content {
+      max-width: 100%;
+    }
+  }
+</style>
+
