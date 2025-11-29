@@ -1,0 +1,69 @@
+---
+import BaseLayout from "./layouts/BaseLayout.astro";
+
+const pageTitle = "Terms & Conditions | Amplify Creative Lab";
+const pageDescription =
+  "Terms and Conditions for photography services provided by Amplify Creative Lab in Perth, Western Australia.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="terms-page">
+    <section class="terms-inner">
+      <h1>Terms &amp; Conditions</h1>
+      <p><strong>Last Updated:</strong> November 2025</p>
+
+      <h2>1. Introduction</h2>
+      <p>
+        These Terms and Conditions ("Terms") govern the photography services provided by
+        Amplify Creative Lab ("we", "us", or "our") to you ("the Client").
+        By booking a shoot or paying a deposit, you agree to be bound by these Terms.
+      </p>
+
+      <h2>2. Bookings and Payments</h2>
+      <p><strong>Booking Fee:</strong> To secure your date or session, a non-refundable booking fee (typically 50% of the total quote) is required. No booking is confirmed until this fee is paid.</p>
+      <p><strong>Balance:</strong> The remaining balance is due prior to the delivery of the final high-resolution images.</p>
+      <p><strong>Invoices:</strong> Invoices must be paid within 7 days of issue unless otherwise agreed in writing.</p>
+
+      <h2>3. Cancellations and Rescheduling</h2>
+      <p><strong>Client Cancellation:</strong> If you cancel within 48 hours of the scheduled shoot, the booking fee is forfeited to cover our loss of business.</p>
+      <p><strong>Rescheduling:</strong> We understand that life happens. One reschedule is permitted without penalty if requested more than 48 hours in advance. Subsequent reschedules may incur a re-booking fee.</p>
+      <p><strong>Weather:</strong> For outdoor shoots, we reserve the right to reschedule due to inclement weather (for example, heavy rain or storms) at no extra cost.</p>
+
+      <h2>4. Copyright and Usage Rights</h2>
+      <p><strong>Ownership:</strong> Amplify Creative Lab retains the copyright to all images created.</p>
+      <p><strong>Client Licence:</strong> Upon full payment, we grant you a non-exclusive, perpetual, worldwide licence to use the images for your business marketing (for example, website, social media, print ads, menus).</p>
+      <p><strong>Restrictions:</strong> You may not sell the images to third parties (for example, stock libraries) or alter them significantly (through heavy filters or editing) without our permission.</p>
+      <p><strong>Our Use:</strong> We reserve the right to use the images for our own self‑promotion (for example, portfolio, website, social media) unless a Non‑Disclosure Agreement (NDA) has been signed.</p>
+
+      <h2>5. Delivery and Archiving</h2>
+      <p><strong>Turnaround:</strong> Standard turnaround time is 7–14 business days from the shoot date, depending on the project scope.</p>
+      <p><strong>Storage:</strong> We will archive your images for 12 months. After this period, we are not liable for the storage or retrieval of your files. We recommend you back up your images immediately upon receipt.</p>
+
+      <h2>6. Limitation of Liability</h2>
+      <p>
+        In the unlikely event that we cannot perform the services due to illness, emergency,
+        or equipment failure, our liability is limited to a full refund of all monies paid.
+        We are not liable for any consequential damages or lost profits.
+      </p>
+
+      <h2>7. Jurisdiction</h2>
+      <p>
+        These Terms are governed by the laws of Western Australia. Any disputes arising in connection
+        with these Terms shall be subject to the exclusive jurisdiction of the courts of Western Australia.
+      </p>
+    </section>
+  </main>
+
+  <style>
+    .terms-page {
+      background-color: #fef8eb;
+    }
+
+    .terms-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+  </style>
+</BaseLayout>
+

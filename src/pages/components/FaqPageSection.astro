@@ -1,0 +1,345 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface FaqGroup {
+  id?: string;
+  title: string;
+  intro?: string;
+  icon?: string;
+  items: FaqItem[];
+}
+
+interface Props {
+  groups: FaqGroup[];
+}
+
+const { groups } = Astro.props as Props;
+---
+
+<section class="faq-page" aria-labelledby="faq-page-heading">
+  <div class="faq-page-inner">
+    
+    <header class="faq-page-header">
+      <p class="faq-page-kicker">Frequently Asked Questions</p>
+      <h1 id="faq-page-heading" class="faq-page-title">
+        Perth photography studio FAQ
+      </h1>
+      <p class="faq-page-lede">
+        Answers to the most common questions about booking our Perth photography studio, how travel works,
+        and what you receive after your session. Everything here is based on real questions from food,
+        product, portrait and wedding clients across Perth.
+      </p>
+    </header>
+
+    <div class="faq-page-content">
+      {
+        groups.map((group) => (
+          <section
+            class="faq-group"
+            {...(group.id ? { id: group.id } : {})}
+          >
+            <header class="faq-group-header">
+              <h2 class="faq-group-title">
+                {group.icon && (
+                  <span class="faq-group-icon" set:html={group.icon} />
+                )}
+                {group.title}
+              </h2>
+              {group.intro && <p class="faq-group-intro">{group.intro}</p>}
+            </header>
+
+            <div class="faq-list">
+              {
+                group.items.map((item, index) => (
+                  <details
+                    class="faq-item"
+                    {...(index === 0 && group.id === 'booking-locations-logistics' ? { open: true } : {})}
+                  >
+                    <summary class="faq-question">
+                      <span>{item.question}</span>
+                      <span class="faq-toggle-icon" aria-hidden="true">
+                        +
+                      </span>
+                    </summary>
+                    <div
+                      class="faq-answer"
+                      set:html={item.answer}
+                    />
+                  </details>
+                ))
+              }
+            </div>
+          </section>
+        ))
+      }
+    </div>
+
+    <aside class="faq-cta">
+      <div class="faq-cta-content">
+        <h2 class="faq-cta-title">Still not sure what you need?</h2>
+        <p class="faq-cta-text">
+          If your question is not covered here or you have a unique brief,
+          reach out with a few details about your project and we will recommend
+          the best way to work together.
+        </p>
+      </div>
+      <a class="faq-cta-link" href="/#work-with-us">
+        Contact the studio
+      </a>
+    </aside>
+
+  </div>
+</section>
+
+<style>
+  .faq-page {
+    --color-bg: #fef8eb;
+    --color-text: #93897e;
+    --color-heading: #152705;
+
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
+  }
+
+  .faq-page-inner {
+    max-width: 800px; /* Constrained width for better readability */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* Removed the gap here to control spacing manually between sections */
+  }
+
+  /* --- Header --- */
+  .faq-page-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 4rem auto;
+  }
+
+  .faq-page-kicker {
+    margin: 0 0 0.25rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    font-family: "Darker Grotesque", system-ui, sans-serif;
+  }
+
+  .faq-page-title {
+    margin: 0 0 1rem;
+    font-family: "Abril Fatface", system-ui, serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    line-height: 1.1;
+  }
+
+  .faq-page-lede {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* --- Content Groups --- */
+  .faq-page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem; /* Space between major sections */
+  }
+
+  .faq-group-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(21, 39, 5, 0.1);
+  }
+
+  .faq-group-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    font-family: "Darker Grotesque", system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* New Icon Styling */
+  .faq-group-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    color: var(--color-heading);
+    opacity: 0.8;
+  }
+  .faq-group-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .faq-group-intro {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 90%;
+  }
+
+  /* --- List & Items --- */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    border-radius: 0.5rem;
+    background: transparent; /* Cleaner look */
+    border: 1px solid rgba(21, 39, 5, 0.1);
+    padding: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(21, 39, 5, 0.3);
+  }
+
+  .faq-item[open] {
+    background: #fff;
+    border-color: rgba(21, 39, 5, 0.15);
+    box-shadow: 0 4px 12px rgba(21, 39, 5, 0.03);
+  }
+
+  .faq-question {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 700; /* Bolder for better scanning */
+    color: var(--color-heading);
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-toggle-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    transform-origin: center;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    color: rgba(21, 39, 5, 0.5);
+  }
+
+  .faq-item[open] .faq-toggle-icon {
+    transform: rotate(45deg);
+    color: var(--color-heading);
+  }
+
+  .faq-answer {
+    padding: 0 1.25rem 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--color-text);
+  }
+  
+  /* HTML content styling inside answer */
+  .faq-answer :global(p) { margin: 0 0 0.75rem; }
+  .faq-answer :global(p:last-child) { margin-bottom: 0; }
+  .faq-answer :global(ul) { margin: 0 0 1rem 1.2rem; padding: 0; }
+  .faq-answer :global(li) { margin: 0.25rem 0; }
+  .faq-answer :global(a) {
+    color: var(--color-heading);
+    text-decoration: underline;
+    text-decoration-color: rgba(21, 39, 5, 0.35);
+    text-underline-offset: 0.15em;
+    font-weight: 500;
+  }
+  .faq-answer :global(a:hover) {
+    text-decoration-color: var(--color-heading);
+  }
+
+  /* --- Full Width CTA Banner --- */
+  .faq-cta {
+    margin-top: 5rem;
+    border-radius: 0.75rem;
+    background: #152705;
+    color: #fef8eb;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    box-shadow: 0 15px 40px rgba(21, 39, 5, 0.15);
+  }
+
+  .faq-cta-content {
+    max-width: 500px;
+  }
+
+  .faq-cta-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: "Darker Grotesque", system-ui, sans-serif;
+    color: #fff;
+  }
+
+  .faq-cta-text {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .faq-cta-link {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 999px;
+    background-color: #fef8eb;
+    color: #152705;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-cta-link:hover,
+  .faq-cta-link:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .faq-cta {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    
+    .faq-cta-link {
+      width: 100%;
+    }
+
+    .faq-group-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>

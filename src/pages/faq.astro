@@ -1,0 +1,421 @@
+---
+import BaseLayout from "./layouts/BaseLayout.astro";
+import FaqPageSection from "./components/FaqPageSection.astro";
+
+const pageTitle = "Perth Photography Studio FAQ | AmplifyCreativeLab";
+const pageDescription =
+  "Answers to the most common questions about booking Amplify Creative Lab for food, product, portrait and wedding photography in Perth.";
+
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+type FaqGroup = {
+  id?: string;
+  title: string;
+  intro?: string;
+  icon?: string; // Added icon support
+  items: FaqItem[];
+};
+
+
+// SVG Icons for section headers (Now with fixed width/height for safety)
+const Icons = {
+  calendar: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`,
+  food: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0 4.5-2.5 8-5 8C10 16 8 12 8 6.5V2"></path><path d="M4 2v19"></path><line x1="16" y1="2" x2="16" y2="4"></line><line x1="20" y1="2" x2="20" y2="4"></line><path d="M21 7v1h-6V7a3 3 0 0 1 6 0z"></path></svg>`,
+  product: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
+  portrait: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
+  deliverables: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`
+};
+
+const faqGroups: FaqGroup[] = [
+  {
+    id: "booking-locations-logistics",
+    title: "Booking, Locations & Logistics",
+    icon: Icons.calendar,
+    intro:
+      "How our North Perth photography studio works, where we travel and what to expect when locking in a date.",
+    items: [
+      {
+        question:
+          "Where is Amplify Creative Lab located and how far do you travel?",
+        answer: `
+          <p>
+            Amplify Creative Lab is a Perth photography studio based in North Perth (City of Vincent),
+            and we service the entire Perth metropolitan area.
+          </p>
+          <p>
+            <strong>For restaurants &amp; events:</strong> We come to you. Whether you are in the CBD,
+            Fremantle or the northern suburbs, we bring our mobile studio lighting to your venue so
+            you can keep service running smoothly.
+          </p>
+          <p>
+            <strong>For products:</strong> Our studio workflow is optimised for efficiency. You can drop off
+            products at our North Perth studio, or mail them to us from anywhere in Australia as part of our
+            “Ship &amp; Shoot” service.
+          </p>
+          <p>
+            <strong>Travel fees:</strong> Travel within the standard Perth metro area is included. If your business
+            or wedding is located in regional Western Australia (for example, Margaret River or the Swan Valley),
+            get in touch for a custom travel quote based on time and distance.
+          </p>
+        `,
+      },
+      {
+        question:
+          "How do I book a session and what is the payment structure?",
+        answer: `
+          <p>Our booking process is designed to be simple and transparent:</p>
+          <ul>
+            <li>
+              <strong>1. Enquiry:</strong> Fill out the
+              <a href="/#work-with-us">contact form</a> with a few details about your project
+              (type of shoot, location, preferred dates and any deadlines).
+            </li>
+            <li>
+              <strong>2. Consultation:</strong> We will have a quick chat via email or phone
+              to make sure we are the right fit and to clarify your goals.
+            </li>
+            <li>
+              <strong>3. Deposit:</strong> To secure your date we require a
+              <strong>50% non-refundable deposit</strong>. This locks in our team and equipment for your time slot.
+            </li>
+            <li>
+              <strong>4. Balance:</strong> The remaining 50% is due on the day of the photoshoot
+              (or prior for some commercial bookings).
+            </li>
+            <li>
+              <strong>5. Invoices:</strong> We provide full tax invoices for all payments,
+              suitable for Australian business tax claims.
+            </li>
+          </ul>
+        `,
+      },
+      {
+        question: "What happens if I need to reschedule or cancel?",
+        answer: `
+          <p>
+            We understand that life happens and staff get sick, so we aim to be as flexible as possible.
+          </p>
+          <p>
+            <strong>Rescheduling:</strong> If you notify us at least <strong>48 hours in advance</strong>,
+            we can transfer your deposit to a new date within the next 3 months (subject to availability).
+          </p>
+          <p>
+            <strong>Weather:</strong> For outdoor portrait sessions, if Perth’s weather turns bad
+            (heavy rain or storms), we will make the call to reschedule at no extra cost.
+          </p>
+          <p>
+            <strong>Cancellation:</strong> If you cancel completely, the 50% deposit acts as a cancellation fee
+            to cover the time we held for you and any pre-production work already completed.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
+    id: "food-restaurant-photography",
+    title: "Food & Restaurant Photography",
+    icon: Icons.food,
+    intro:
+      "Information for restaurants, cafes and hospitality venues booking Perth food photography and content.",
+    items: [
+      {
+        question:
+          "Can you shoot photos specifically for Uber Eats, DoorDash and Menulog?",
+        answer: `
+          <p>
+            Absolutely. We regularly create <strong>Uber Eats photography</strong> and menu images
+            for delivery platforms including Uber Eats, DoorDash and Menulog.
+          </p>
+          <p>
+            Each platform has specific requirements for aspect ratios, file sizes and how dishes
+            appear on mobile. We know how to style, light and crop your dishes so they look
+            delicious in the app and meet the technical specifications.
+          </p>
+          <p>
+            A strong hero image can significantly increase your click‑through rate and conversions
+            on delivery apps. If you are updating your menu or digital presence, you may also want
+            to explore our dedicated
+            <a href="/perth-food-photography/">Perth food photography services</a>.
+          </p>
+        `,
+      },
+      {
+        question: "Do I need to close my restaurant for the photoshoot?",
+        answer: `
+          <p>
+            Not necessarily. Many venues stay open during their shoot, but we do recommend
+            scheduling photography during <strong>off‑peak hours</strong>
+            (for example, early morning or between lunch and dinner service).
+          </p>
+          <p>
+            Shooting during quieter times gives us space to set up lights without getting in the way
+            of your team, and allows your kitchen staff to focus fully on plating each dish perfectly
+            without the pressure of docket orders.
+          </p>
+          <p>
+            If you are unsure about the best time, we can advise based on your style of venue and the
+            type of imagery you need for your website or delivery platforms.
+          </p>
+        `,
+      },
+      {
+        question: 'What is the difference between "Styled" and "Lifestyle" food photography?',
+        answer: `
+          <p>
+            We generally split food photography into two main approaches, which can also be combined
+            in the same session:
+          </p>
+          <p>
+            <strong>Styled (studio / product):</strong> This is where we control everything. We use props,
+            precise lighting and food styling techniques to make a burger look juicy, a drink look frosty
+            or desserts pop on a clean background. Styled images are perfect for menus, websites,
+            packaging and advertising.
+          </p>
+          <p>
+            <strong>Lifestyle (venue / documentary):</strong> This captures the <em>vibe</em> of your venue.
+            Think the chef cooking on the pass, the bartender pouring cocktails, or guests enjoying the space.
+            Lifestyle imagery is essential for social media and your website to show the atmosphere and story
+            behind your food.
+          </p>
+        `,
+      },
+      {
+        question:
+          'Who creates the "Creative Content Plan" mentioned in the packages?',
+        answer: `
+          <p>
+            We create your <strong>Creative Content Plan</strong> collaboratively with you.
+          </p>
+          <p>
+            Before the shoot we review your current social media, website and competitors.
+            From there we propose a tailored shot list&mdash;for example:
+          </p>
+          <ul>
+            <li>5 hero dishes or drinks for your menu and website</li>
+            <li>3 staff or chef portraits for “About” and social posts</li>
+            <li>2–4 interior or venue vibe shots</li>
+          </ul>
+          <p>
+            This ensures you receive a mix of hero images and day‑to‑day content that can fill your
+            Instagram grid and marketing channels for the next month or more.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
+    id: "product-ecommerce-photography",
+    title: "Product & E‑Commerce Photography",
+    icon: Icons.product,
+    intro:
+      "For brands needing product photography in Perth or remote “Ship & Shoot” sessions for online stores.",
+    items: [
+      {
+        question:
+          "I have a product to sell online. Do you do pure white background photos?",
+        answer: `
+          <p>
+            Yes. We specialise in high‑key <strong>white background photography</strong> (RGB 255, 255, 255)
+            ideal for Amazon, Shopify and e‑commerce catalogues.
+          </p>
+          <p>
+            Our product photography workflow is designed for consistency and colour accuracy, so your items
+            look clean, sharp and true‑to‑life on any screen. This helps reduce returns and builds trust
+            with your customers.
+          </p>
+        `,
+      },
+      {
+        question: "Can I mail my products to you?",
+        answer: `
+          <p>
+            Yes. A large portion of our client base uses our
+            <strong>“Ship &amp; Shoot” product photography service</strong>.
+          </p>
+          <ul>
+            <li>You mail your products to our North Perth studio.</li>
+            <li>We schedule a quick video call to confirm styling, angles and priority shots.</li>
+            <li>We photograph and edit the images according to your brief.</li>
+            <li>We carefully pack and mail the products back to you (you cover return shipping).</li>
+          </ul>
+          <p>
+            This is ideal for interstate brands who need <a href="/perth-food-photography/">product photography in Perth</a>
+            without having to travel.
+          </p>
+        `,
+      },
+      {
+        question: "What file formats do you deliver?",
+        answer: `
+          <p>
+            Standard delivery includes high‑resolution JPEG files suitable for websites, social media and print.
+          </p>
+          <p>
+            For product photography we can also provide <strong>PNG files with transparent backgrounds</strong>
+            (deep etched) for an additional fee. These are ideal if you need to place your products on coloured
+            backgrounds, lifestyle scenes or marketing layouts.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
+    id: "portrait-wedding-photography",
+    title: "Portrait & Wedding Photography",
+    icon: Icons.portrait,
+    intro:
+      "Sessions for families, couples, professionals and small weddings looking for relaxed, natural images.",
+    items: [
+      {
+        question: "I’m awkward in front of cameras. Can you help?",
+        answer: `
+          <p>
+            Absolutely&mdash;this is one of the most common things we hear from portrait and
+            <a href="/perth-event-photography/">family photoshoot</a> clients.
+          </p>
+          <p>
+            We specialise in <strong>prompt‑based posing</strong> rather than stiff, formal posing.
+            Instead of “stand here and smile”, we might ask you to walk, chat, laugh or interact with your
+            partner or kids. This creates genuine, candid moments where you look like yourself,
+            not a mannequin.
+          </p>
+        `,
+      },
+      {
+        question: "What should we wear for a family or portrait session?",
+        answer: `
+          <p>
+            We recommend <strong>coordinating, not matching</strong>. Aim for colours and textures that
+            work together without everyone wearing the exact same outfit.
+          </p>
+          <p>
+            Avoid large logos or heavy patterns that can distract from faces. Earthy tones (beiges, greens,
+            rusts) tend to look beautiful in Perth’s outdoor locations, while solid block colours work best
+            for studio portraits.
+          </p>
+          <p>
+            Once you book, we will send a more detailed <strong>Style Guide</strong> covering outfit tips,
+            accessories and how to prepare kids (and partners!) for the shoot.
+          </p>
+        `,
+      },
+      {
+        question: "Do you offer Mini Sessions?",
+        answer: `
+          <p>
+            Yes. We offer 30‑minute <strong>Mini Sessions</strong> specifically designed for families who
+            want a quick update without the time commitment of a full session.
+          </p>
+          <p>
+            Mini Sessions are perfect for families with young children, busy professionals needing fresh
+            headshots, or couples wanting a few great images for announcements.
+          </p>
+          <p>
+            Availability can change throughout the year, so check our pricing information or
+            <a href="/#work-with-us">send an enquiry</a> to see when the next round of Mini Sessions
+            will be released.
+          </p>
+        `,
+      },
+    ],
+  },
+  {
+    id: "deliverables-technical",
+    title: "Deliverables & Technical Info",
+    icon: Icons.deliverables,
+    intro:
+      "What you receive after the shoot, how long we keep files and how copyright works.",
+    items: [
+      {
+        question: 'What is the "All Good Original Photos" inclusion?',
+        answer: `
+          <p>
+            Most photographers only supply a small set of final edited images (for example, 10–20 photos).
+            We know that for social media you need <strong>volume</strong> as well as hero shots.
+          </p>
+          <p>
+            With Amplify Creative Lab you receive:
+          </p>
+          <ul>
+            <li>
+              A curated gallery of <strong>lightly colour‑corrected “Original” JPEGs</strong> (your
+              “All Good Original Photos”) that are perfect for Instagram, TikTok, Reels and stories.
+            </li>
+            <li>
+              A set of <strong>fully retouched images</strong> ideal for your website, campaigns and ads.
+            </li>
+          </ul>
+          <p>
+            This gives you both polished hero imagery and plenty of day‑to‑day content to keep your
+            brand visible online.
+          </p>
+        `,
+      },
+      {
+        question: "How long do you keep my photos?",
+        answer: `
+          <p>
+            We keep a backup of your final edited images for at least <strong>6 months</strong> after the shoot.
+          </p>
+          <p>
+            We strongly recommend downloading your gallery as soon as it is delivered and backing it up
+            to at least one external hard drive or cloud storage service. While we do our best to archive
+            projects, we cannot guarantee storage beyond this period.
+          </p>
+        `,
+      },
+      {
+        question: "Who owns the copyright to the images?",
+        answer: `
+          <p>
+            Under Australian Copyright Law, Amplify Creative Lab retains the copyright to the images
+            we create. However, we grant you a broad, practical usage licence so you can actually use
+            the work you have commissioned.
+          </p>
+          <p>
+            <strong>You can:</strong> use the photos on your website, social media, menus, printed materials
+            and advertising indefinitely for your own business.
+          </p>
+          <p>
+            <strong>You cannot:</strong> sell or sublicence the photos to third parties (for example, stock
+            photo sites or other businesses) without our written permission.
+          </p>
+          <p>
+            If you have a specific licensing question (for example, national campaigns or usage by partners),
+            please mention it in your enquiry so we can advise on the best option.
+          </p>
+        `,
+      },
+    ],
+  },
+];
+
+const stripHtml = (html: string) => html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqGroups.flatMap((group) =>
+    group.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: stripHtml(item.answer),
+      },
+    }))
+  ),
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="page-faq">
+    <FaqPageSection groups={faqGroups} />
+  </main>
+
+  <script type="application/ld+json">
+    {JSON.stringify(faqSchema)}
+  </script>
+</BaseLayout>
