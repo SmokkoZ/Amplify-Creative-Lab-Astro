@@ -61,6 +61,16 @@ main {
   display: block;
 }
 
+/* ========== GLOBAL LINKS ========== */
+a {
+  color: #4a2e1c;
+}
+
+a:hover,
+a:focus-visible {
+  color: #4a2e1c;
+}
+
 
 
 

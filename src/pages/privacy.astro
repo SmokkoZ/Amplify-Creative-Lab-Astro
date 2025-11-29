@@ -7,12 +7,16 @@ const pageDescription =
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <main class="privacy-page">
-    <section class="privacy-inner">
-      <h1>Privacy Policy</h1>
-      <p><strong>Last Updated:</strong> November 2025</p>
+  <main class="legal-page">
+    <section class="legal-inner">
+      <header class="legal-header">
+        <p class="legal-kicker">Legal</p>
+        <h1 class="legal-title">Privacy Policy</h1>
+        <p class="legal-meta"><strong>Last Updated:</strong> November 2025</p>
+      </header>
 
-      <h2>1. Introduction</h2>
+      <section class="legal-section">
+        <h2>1. Introduction</h2>
       <p>
         Amplify Creative Lab ("we", "us", or "our") is committed to protecting your privacy.
         This Privacy Policy explains how we collect, use, and safeguard your personal information
@@ -23,7 +27,10 @@ const pageDescription =
         contained in the Privacy Act 1988 (Cth).
       </p>
 
-      <h2>2. Information We Collect</h2>
+      </section>
+
+      <section class="legal-section">
+        <h2>2. Information We Collect</h2>
       <p>We may collect the following types of information:</p>
       <p>
         <strong>Personal Information:</strong> When you fill out a contact form, request a quote,
@@ -35,7 +42,10 @@ const pageDescription =
         you visit our site, including your IP address, browser type, device type, and the pages you visit.
       </p>
 
-      <h2>3. How We Use Your Information</h2>
+      </section>
+
+      <section class="legal-section">
+        <h2>3. How We Use Your Information</h2>
       <p>We use your data for the following business purposes:</p>
       <ul>
         <li>To respond to your enquiries and provide quotes.</li>
@@ -44,7 +54,10 @@ const pageDescription =
         <li>To improve our website performance and user experience.</li>
       </ul>
 
-      <h2>4. Cookies and Tracking Technologies</h2>
+      </section>
+
+      <section class="legal-section">
+        <h2>4. Cookies and Tracking Technologies</h2>
       <p>
         Our website uses cookies and similar tracking technologies to analyse site traffic and
         improve our marketing.
@@ -59,7 +72,10 @@ const pageDescription =
         opt out of Google Analytics tracking by installing the Google Analytics Opt-out Browser Add-on.
       </p>
 
-      <h2>5. Disclosure of Information</h2>
+      </section>
+
+      <section class="legal-section">
+        <h2>5. Disclosure of Information</h2>
       <p>
         We respect your privacy. We do not sell, trade, or rent your personal information to third parties.
         We may share your data only in the following limited circumstances:
@@ -72,20 +88,29 @@ const pageDescription =
         <li>If required by law or to protect our legal rights.</li>
       </ul>
 
-      <h2>6. Data Security</h2>
+      </section>
+
+      <section class="legal-section">
+        <h2>6. Data Security</h2>
       <p>
         We take reasonable technical and organisational measures to secure your personal information
         against unauthorised access, loss, or misuse. However, please note that no method of transmission
         over the internet is 100% secure.
       </p>
 
-      <h2>7. Your Rights</h2>
+      </section>
+
+      <section class="legal-section">
+        <h2>7. Your Rights</h2>
       <p>
         You have the right to request access to the personal information we hold about you and to ask
         for corrections if it is inaccurate. To exercise these rights, please contact us using the details below.
       </p>
 
-      <h2>8. Contact Us</h2>
+      </section>
+
+      <section class="legal-section">
+        <h2>8. Contact Us</h2>
       <p>If you have any questions about this Privacy Policy, please contact us at:</p>
       <p>
         <strong>Amplify Creative Lab</strong><br />
@@ -93,19 +118,86 @@ const pageDescription =
         <a href="mailto:hello@amplifycreativelab.com">hello@amplifycreativelab.com</a><br />
         Location: Perth, Western Australia
       </p>
+      </section>
     </section>
   </main>
 
   <style>
-    .privacy-page {
-      background-color: #fef8eb;
+    .legal-page {
+      --color-bg: #fef8eb;
+      --color-text: #93897e;
+      --color-heading: #152705;
+
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4.5rem);
     }
 
-    .privacy-inner {
+    .legal-inner {
       max-width: 800px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .legal-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem auto;
+    }
+
+    .legal-kicker {
+      margin: 0 0 0.25rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-heading);
+      font-family: "Darker Grotesque", system-ui, sans-serif;
+    }
+
+    .legal-title {
+      margin: 0 0 0.75rem;
+      font-family: "Abril Fatface", system-ui, serif;
+      font-size: clamp(2.25rem, 4vw, 3rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-heading);
+    }
+
+    .legal-meta {
+      margin: 0;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .legal-section {
+      margin-bottom: 2rem;
+    }
+
+    .legal-section h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-heading);
+      font-family: "Darker Grotesque", system-ui, sans-serif;
+    }
+
+    .legal-section p {
+      margin: 0 0 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .legal-section ul {
+      margin: 0 0 1.1rem 1.2rem;
+      padding: 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .legal-section li {
+      margin: 0.25rem 0;
     }
   </style>
 </BaseLayout>
-
