@@ -501,7 +501,7 @@ These articles should be treated as **supporting content** that internally links
 Every article must define a `post: BlogPost` object and pass it into `<BlogPostLayout {...post}>`. Map planning fields to props like this:
 
 - **Title** → `title`  
-  - Use a clear, benefit-driven headline. This is also used as the hero `<img>` alt.
+  - Use a clear, benefit-driven headline. This is also used as the hero `<Image />` alt.
 - **Meta Description** → `description`  
   - Aim for ~140–155 characters; front-load “Perth”, “restaurant”, “café”, “web design”, “food photography” etc.
 - **Publish Date** → `publishDate` in `YYYY-MM-DD` format.
@@ -544,9 +544,9 @@ For Article 1 and Article 2, consider adding FAQPage schema if you include a Q&A
 
 The <Image /> Component (Crucial):
 
-Do not use standard HTML <img> tags for blog content.
+Do not use standard HTML `<img>` tags for blog content.
 
-Use Astro's <Image /> component.
+Use Astro's `<Image />` component.
 
 Benefit: It automatically generates the correct width/height to prevent Cumulative Layout Shift (CLS)—a key point in Article 4.
 

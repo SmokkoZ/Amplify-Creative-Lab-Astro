@@ -1,0 +1,38 @@
+---
+import BlogPostLayout from "../layouts/BlogPostLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+type BlogEntry = CollectionEntry<"blog">;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: BlogEntry };
+const { Content } = await post.render();
+const { data, slug } = post;
+
+const canonicalUrl =
+  data.canonicalUrl ??
+  new URL(`/blog/${slug}/`, "https://amplifycreativelab.com").toString();
+---
+
+<BlogPostLayout
+  title={data.title}
+  description={data.description}
+  publishDate={data.publishDate}
+  author={data.author}
+  category={data.category}
+  readTime={data.readTime}
+  featuredImage={data.featuredImage}
+  featuredImagePosition={data.featuredImagePosition}
+  tags={data.tags}
+  canonicalUrl={canonicalUrl}
+>
+  <Content />
+</BlogPostLayout>
