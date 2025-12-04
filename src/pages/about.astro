@@ -1,0 +1,272 @@
+---
+import BaseLayout from "./layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+
+const pageTitle = "About Amplify Creative Lab | Jojo & Stefano";
+const pageDescription =
+  "Meet Jojo, Perth food and product photographer, and Stefano, web developer behind Amplify Creative Lab.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="page-about">
+    <section class="about-hero">
+      <div class="about-hero__inner">
+        <p class="about-hero__kicker">ABOUT AMPLIFY CREATIVE LAB</p>
+        <h1 class="about-hero__title">Photography and web development under one roof.</h1>
+        <p class="about-hero__lead">
+          Amplify Creative Lab is a small Perth studio led by Jojo and Stefano.
+          We combine commercial photography with fast, search-friendly websites
+          so your restaurant, bar or brand looks incredible everywhere it shows up online.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-section__inner about-section__inner--split">
+        <div class="about-section__content">
+          <h2 class="about-section__heading">
+            Meet Jojo &mdash; Perth food, product &amp; event photographer
+          </h2>
+          <p>
+            Jojo is the photographer behind Amplify Creative Lab. Based in North Perth,
+            she specialises in food, product and event photography for restaurants,
+            caf&eacute;s, bars and consumer brands across Western Australia.
+          </p>
+          <p>
+            With a background in hospitality and years spent shooting in real kitchens,
+            Jojo knows how to work around service, capture dishes at their best and
+            make real venues feel warm and inviting on camera. From Uber Eats hero images
+            to full restaurant rebrands, her focus is always the same: create images that
+            look beautiful and actually help you sell more.
+          </p>
+          <p>
+            Whether you need styled packshots on a clean background, lifestyle scenes in
+            venue, or launch content for a new product, Jojo designs each shoot around
+            your menu, brand and marketing channels.
+          </p>
+          <p>
+            You can see more of Jojo&apos;s work in our
+            {" "}
+            <a href="/portfolio/">food, product and portrait portfolio</a>.
+          </p>
+        </div>
+
+        <div class="about-section__visual">
+          <Image
+            src="/images/portfolio/portrait/female-chef-professional-headshot-perth.webp"
+            alt="Jojo, Perth food, product and event photographer at Amplify Creative Lab"
+            width="600"
+            height="750"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section about-section--alt">
+      <div class="about-section__inner about-section__inner--split">
+        <div class="about-section__content">
+          <h2 class="about-section__heading">
+            Meet Stefano &mdash; web developer &amp; technical strategist
+          </h2>
+          <p>
+            Stefano is the web developer at Amplify Creative Lab. He plans, designs
+            and builds the websites that Jojo&apos;s photography lives on, with a
+            strong focus on performance, UX and local SEO for Perth hospitality and
+            lifestyle brands.
+          </p>
+          <p>
+            Using modern tools like Astro, he builds sites that load quickly on mobile,
+            pass Core Web Vitals and are easy for search engines to understand. That means
+            your photos, menus and booking links don&apos;t just look good &mdash; they are
+            structured in a way that helps more people find you on Google.
+          </p>
+          <p>
+            Stefano also handles the technical details most venues don&apos;t have time
+            for: schema markup, redirects, on-page optimisation, image compression and
+            analytics, so you know exactly how your site is performing.
+          </p>
+          <p>
+            If you&apos;re planning a new site or a rebuild,
+            {" "}
+            <a href="/website-development/">learn more about our website development services</a>.
+          </p>
+        </div>
+
+        <div class="about-section__visual">
+          <Image
+            src="/images/portfolio/portrait/corporate-business-portrait-man-laptop-perth.webp"
+            alt="Stefano, web developer at Amplify Creative Lab, working on a laptop in Perth"
+            width="600"
+            height="750"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section about-section--combined">
+      <div class="about-section__inner">
+        <div class="about-section__content">
+          <h2 class="about-section__heading">Why work with a combined photo &amp; web team?</h2>
+          <p>
+            Most studios either shoot photos <em>or</em> build websites. We do both.
+            That means your brand doesn&apos;t end up with beautiful images on a slow
+            site, or a fast site filled with generic stock photos.
+          </p>
+          <p>
+            Jojo plans your shoot around the specific pages and campaigns Stefano is building:
+            home hero images, menu sections, Google Business Profile, delivery platforms,
+            paid ads and social content. Stefano then designs layouts and optimises the site
+            around those real assets, so every pixel is working towards bookings or online sales.
+          </p>
+          <p>
+            The result is a joined-up visual and technical strategy that looks intentional,
+            loads quickly and makes it simple for your customers to book a table, place an
+            order or enquire about a shoot.
+          </p>
+          <p>
+            If you&apos;d like to talk about a project,
+            {" "}
+            <a href="/#work-with-us">reach out via our contact form</a>
+            {" "}
+            and we&apos;ll reply with a practical, non-pushy recommendation.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .page-about {
+      padding-block: clamp(3rem, 6vw, 4rem);
+      padding-inline: clamp(
+        var(--container-pad-mobile),
+        5vw,
+        var(--container-pad-desktop)
+      );
+      background: var(--color-bg);
+    }
+
+    .about-hero {
+      padding-block-end: clamp(2.5rem, 5vw, 3.5rem);
+      border-bottom: 1px solid rgba(21, 39, 5, 0.08);
+      margin-block-end: clamp(2.5rem, 5vw, 3rem);
+    }
+
+    .about-hero__inner {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    .about-hero__kicker {
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7b5b33;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-hero__title {
+      font-family: "Abril Fatface", system-ui, serif;
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      color: var(--color-heading);
+      margin: 0 0 1rem;
+    }
+
+    .about-hero__lead {
+      font-family: "Darker Grotesque", system-ui, sans-serif;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      max-width: 44rem;
+      color: #24360f;
+    }
+
+    .about-section {
+      padding-block: clamp(2.25rem, 4vw, 3rem);
+    }
+
+    .about-section--alt {
+      background: #f4ebdd;
+      margin-inline: calc(-1 * clamp(var(--container-pad-mobile), 5vw, var(--container-pad-desktop)));
+      padding-inline: clamp(
+        var(--container-pad-mobile),
+        5vw,
+        var(--container-pad-desktop)
+      );
+    }
+
+    .about-section--combined {
+      border-top: 1px solid rgba(21, 39, 5, 0.08);
+    }
+
+    .about-section__inner {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    .about-section__inner--split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    .about-section__heading {
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-heading);
+      margin-bottom: 1rem;
+    }
+
+    .about-section__content p {
+      font-family: "Darker Grotesque", system-ui, sans-serif;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #24360f;
+      margin-bottom: 0.9rem;
+    }
+
+    .about-section__content a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      font-weight: 500;
+    }
+
+    .about-section__visual img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(21, 39, 5, 0.08);
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .page-about {
+        padding-inline: var(--container-pad-mobile);
+      }
+
+      .about-section--alt {
+        margin-inline: calc(-1 * var(--container-pad-mobile));
+        padding-inline: var(--container-pad-mobile);
+      }
+
+      .about-section__inner--split {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+
+      .about-section__visual {
+        max-width: 480px;
+        margin-inline: auto;
+      }
+    }
+  </style>
+</BaseLayout>

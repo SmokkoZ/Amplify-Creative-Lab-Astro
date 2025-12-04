@@ -625,7 +625,7 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
     
 *   **_\[x\] Local SEO Mistakes Perth Venues Are Making_**
     
-*   **_How to Generate More Reviews for Your Restaurant, Ethically_**
+*   **_\[x\] How to Generate More Reviews for Your Restaurant, Ethically_**
     
 *   **_The Best Perth Suburbs for New Hospitality Venues_**
     
