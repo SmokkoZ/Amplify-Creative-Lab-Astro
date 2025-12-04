@@ -592,9 +592,9 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
     
 *    **_\[x\] How to Build a Pre-Launch Landing Page That Captures Emails_**
     
-*   **_The Ultimate Guide to Packshot Photography for WA Brands_**
+*   **_\[x\] The Ultimate Guide to Packshot Photography for WA Brands_**
     
-  *   **_Event Photography: The 90-Day Content Strategy Perth Venues Overlook_**
+  *   **_\[x\] Event Photography: The 90-Day Content Strategy Perth Venues Overlook_**
       
   *   **_Recommended category for this cluster: Product Photography or Event Photography (depending on emphasis)._**
   
@@ -603,27 +603,27 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
   
   *   **_Recommended category for this cluster: Performance (or Web Design when discussing build choices)._**
   
-  *   **_Core Web Vitals for Hospitality Websites Explained Simply_**
+  *   **_\[x\] Core Web Vitals for Hospitality Websites Explained Simply_**
     
-*   **_Astro vs WordPress for Hospitality Websites: A Perth-Focused Comparison_**
+*   **_\[x\] Astro vs WordPress for Hospitality Websites: A Perth-Focused Comparison_**
     
-*   **_How Image Compression Impacts SEO & Why Photographers Get It Wrong_**
+*   **_\[x\] How Image Compression Impacts SEO & Why Photographers Get It Wrong_**
     
-*   **_CDN, Caching & Optimization for Perth Café Websites_**
+*   **_\[x\] CDN, Caching & Optimization for Perth Café Websites_**
     
-*   **_Schema Markup for Restaurants: The Ultimate WA Guide_**
+*   **_\[x\] Schema Markup for Restaurants: The Ultimate WA Guide_**
     
-*   **_How To Fix Slow Hospitality Sites Without Rebuilding Everything_**
+*   **_\[x\] How To Fix Slow Hospitality Sites Without Rebuilding Everything_**
     
 
 **_Cluster: Local SEO & Authority_**
 ------------------------------------
 
-*   **_Perth Hospitality SEO: How to Rank Your Café or Restaurant_**
+*  **_\[x\] Perth Hospitality SEO: How to Rank Your Café or Restaurant_**
     
-*   **_The Google Maps Guide for Perth Restaurants_**
+*   **_\[x\] The Google Maps Guide for Perth Restaurants_**
     
-*   **_Local SEO Mistakes Perth Venues Are Making_**
+*   **_\[x\] Local SEO Mistakes Perth Venues Are Making_**
     
 *   **_How to Generate More Reviews for Your Restaurant, Ethically_**
     
@@ -654,7 +654,7 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
 
 **__Targeting owners trying to optimize 3rd party apps, then pivoting them to your direct services.__**
 
-*   **_**UberEats vs. Direct Ordering: How Photography Impacts Commission Costs**_**
+*   **_\[x\] UberEats vs. Direct Ordering: How Photography Impacts Commission Costs**_**
     
 *   **_**Google Maps SEO for Perth Venues: It’s Not Just About Reviews** (Focus on "Owner Photos" and "LocalBusiness" schema)_**
     
