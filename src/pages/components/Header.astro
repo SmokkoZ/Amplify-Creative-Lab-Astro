@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import logoWeb from "../../assets/logo/logo-web.png";
 
 interface MenuItem {
   label: string;
@@ -59,12 +60,13 @@ const rightMenu: MenuItem[] = [
     <div class="site-logo">
       <a href="/" aria-label="Amplify Creative Lab home">
         <Image
-          src="/images/logo/logo-web.png"
+          src={logoWeb}
           alt="Amplify Creative Lab – Perth photography and web design studio logo"
-          width="2409"
-          height="803"
+          width="610"
+          height="203"
           loading="eager"
           decoding="async"
+          fetchpriority="high"
         />
       </a>
     </div>
