@@ -115,6 +115,9 @@ const rightMenu: MenuItem[] = [
 
       <nav aria-label="Mobile menu">
         <ul class="mobile-nav-list">
+          <li class="mobile-nav-item">
+            <a class="mobile-nav-link" href="/">HOME</a>
+          </li>
           {[...leftMenu, ...rightMenu].map((item) => (
             <li class:list={["mobile-nav-item", item.children && "has-dropdown"]}>
               <a class="mobile-nav-link" href={item.href}>{item.label}</a>
