@@ -1155,7 +1155,7 @@ const portfolioItems: PortfolioItem[] = [
   .portfolio-filters {
     flex-wrap: nowrap;          /* keep them on one line */
     justify-content: space-between;
-    gap: 0.5rem;                /* smaller gaps */
+    gap: 0.3rem;                /* smaller gaps */
   }
 
   .portfolio-filter {
@@ -1169,4 +1169,17 @@ const portfolioItems: PortfolioItem[] = [
     text-align: center;
   }
 }
+
+@media (max-width: 480px) {
+  .portfolio-filters {
+    gap: 0.15rem;
+  }
+
+  .portfolio-filter {
+    padding: 3px 4px;        /* less horizontal padding */
+    font-size: 0.55rem;      /* smaller text */
+    letter-spacing: 0.04em;  /* less spacing between letters */
+  }
+}
+
 </style>
