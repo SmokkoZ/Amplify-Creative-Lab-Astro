@@ -84,6 +84,10 @@ const galleryItems = [
         </figure>
       ))}
     </div>
+
+    <a href="/portfolio" class="view-all-link view-all-link--mobile">
+      View Full Portfolio &rarr;
+    </a>
   </div>
 </section>
 
@@ -142,6 +146,11 @@ const galleryItems = [
     border-bottom: 1px solid currentColor;
     white-space: nowrap;
     margin-bottom: 5px;
+  }
+
+  .view-all-link--mobile {
+    display: none;
+    margin-top: 1.5rem;
   }
 
   /* --- DESKTOP GRID --- */
@@ -222,6 +231,10 @@ const galleryItems = [
       /* ------------------------------- */
       
       border-radius: 8px;
+    }
+
+    .view-all-link--mobile {
+      display: inline-block;
     }
   }
 </style>
