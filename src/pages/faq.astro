@@ -4,7 +4,7 @@ import FaqPageSection from "./components/FaqPageSection.astro";
 
 const pageTitle = "Perth Photography Studio FAQ | AmplifyCreativeLab";
 const pageDescription =
-  "Answers to the most common questions about booking Amplify Creative Lab for food, product, portrait and wedding photography in Perth.";
+  "Answers to the most common questions about booking Amplify Creative Lab for food, product, portrait, wedding photography and website design in Perth.";
 
 type FaqItem = {
   question: string;
@@ -26,7 +26,8 @@ const Icons = {
   food: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0 4.5-2.5 8-5 8C10 16 8 12 8 6.5V2"></path><path d="M4 2v19"></path><line x1="16" y1="2" x2="16" y2="4"></line><line x1="20" y1="2" x2="20" y2="4"></line><path d="M21 7v1h-6V7a3 3 0 0 1 6 0z"></path></svg>`,
   product: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
   portrait: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
-  deliverables: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`
+  deliverables: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`,
+  web: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2" ry="2"></rect><line x1="8" y1="20" x2="16" y2="20"></line><line x1="12" y1="18" x2="12" y2="22"></line></svg>`
 };
 
 const faqGroups: FaqGroup[] = [
@@ -112,9 +113,75 @@ const faqGroups: FaqGroup[] = [
           </p>
         `,
       },
-    ],
-  },
-  {
+      ],
+    },
+    {
+      id: "website-design-development",
+      title: "Website Design & Development",
+      icon: Icons.web,
+      intro:
+        "For Perth businesses that need a modern, fast website designed to work hand-in-hand with their photography and content.",
+      items: [
+        {
+          question: "Do you also build websites, or only offer photography?",
+          answer: `
+            <p>
+              We offer both. Amplify Creative Lab is a <strong>photography and web design studio</strong> based in Perth.
+              Many clients book us to <strong>plan their visuals and website together</strong> so that the photos, copy and layout
+              are aligned from day one.
+            </p>
+            <p>
+              This is especially helpful for restaurants, cafes and service businesses who need their menu photos, brand story
+              and booking/contact flows to all work seamlessly on the same site.
+            </p>
+          `,
+        },
+        {
+          question: "What is included in your website design and development service?",
+          answer: `
+            <p>
+              Our website projects are structured so you know exactly what you are getting. A typical engagement includes:
+            </p>
+            <ul>
+              <li>Initial strategy call to clarify your goals, target audience and key actions (book, enquire, order, buy).</li>
+              <li>Site map and wireframes so we can agree on structure before we design anything.</li>
+              <li>Custom visual design that reflects your brand, using your existing assets or new photography we create.</li>
+              <li>Development on a <strong>fast, mobile-first stack</strong> with on-page SEO best practices.</li>
+              <li>Basic analytics and conversion tracking setup (for example, Google Analytics and enquiry/booking goals).</li>
+              <li>A short handover session so you know how to update content, menus and blog posts yourself.</li>
+            </ul>
+          `,
+        },
+        {
+          question: "How long does a website project usually take?",
+          answer: `
+            <p>
+              Timelines depend on scope, but most small business websites take <strong>4–8 weeks</strong> from signed proposal
+              to launch, provided content and feedback are supplied on time.
+            </p>
+            <p>
+              If you have a specific deadline (for example, a venue opening, rebrand or seasonal menu launch), mention it in the
+              <a href="/#work-with-us">contact form</a> so we can recommend a realistic timeline and priority features for launch.
+            </p>
+          `,
+        },
+        {
+          question: "Can you redesign my existing website instead of starting from scratch?",
+          answer: `
+            <p>
+              Yes. If your current site is built on a common platform (such as WordPress or a modern site builder), we can either
+              redesign within that ecosystem or migrate you to a more <strong>performance-focused setup</strong> while preserving
+              your domain and search visibility.
+            </p>
+            <p>
+              During our discovery call we will look at what is already working, what is holding you back (speed, UX, SEO or visuals)
+              and whether a refresh or full rebuild makes the most sense for your goals and budget.
+            </p>
+          `,
+        },
+      ],
+    },
+    {
     id: "food-restaurant-photography",
     title: "Food & Restaurant Photography",
     icon: Icons.food,

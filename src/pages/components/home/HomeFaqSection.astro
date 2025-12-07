@@ -3,12 +3,12 @@ const faqs = [
   {
     question: "How much do your photography sessions cost?",
     answer:
-      "Every project is a little different, but we offer clear, upfront pricing based on the type of shoot (food, product or event), time required and deliverables. Tell us a bit about your project and we’ll send you a custom quote with no surprises.",
+      "Every project is a little different, but we offer clear, upfront pricing based on the type of shoot (food, product or event), time required and deliverables. Tell us a bit about your project and we'll send you a custom quote with no surprises.",
   },
   {
     question: "Do you travel to restaurants, venues or client locations?",
     answer:
-      "Yes. We regularly shoot on location at restaurants, cafés, commercial kitchens, studios and event venues around Perth. Travel within the Perth metro area is usually included—just share your location when you enquire.",
+      "Yes. We regularly shoot on location at restaurants, cafes, commercial kitchens, studios and event venues around Perth. Travel within the Perth metro area is usually included—just share your location when you enquire.",
   },
   {
     question: "How long does a typical photo session take?",
@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "When will I receive my edited photos?",
     answer:
-      "For most projects, you’ll receive your edited images within 7–10 business days. If you have a specific launch date or campaign deadline, let us know and we’ll do our best to prioritise your project.",
+      "For most projects, you'll receive your edited images within 7–10 business days. If you have a specific launch date or campaign deadline, let us know and we'll do our best to prioritise your project.",
   },
   {
     question: "Do you provide both RAW and edited images?",
@@ -28,7 +28,12 @@ const faqs = [
   {
     question: "How do I book a session?",
     answer:
-      "Simply send us an enquiry through the contact form with a few details about your project (type of shoot, location, preferred dates), and we’ll get back to you with availability, pricing and next steps.",
+      "Simply send us an enquiry through the contact form with a few details about your project (type of shoot, location, preferred dates), and we'll get back to you with availability, pricing and next steps.",
+  },
+  {
+    question: "Do you also design and build websites?",
+    answer:
+      "Yes. In addition to photography, we offer custom website design and development for Perth businesses, so your visuals, copy and site layout all work together to drive enquiries and bookings.",
   },
 ];
 
@@ -37,14 +42,11 @@ const topFaqs = faqs.slice(0, 4);
 ---
 
 <section class="faq-section" aria-labelledby="faq-heading">
-
-<section class="faq-section" aria-labelledby="faq-heading">
   <div class="faq-inner">
-    
     <div class="faq-column faq-column--intro">
       <h2 id="faq-heading" class="faq-title">FAQ</h2>
       <p class="faq-subtitle">Common questions about our process.</p>
-      
+
       <a href="/faq" class="faq-link">
         View all questions &rarr;
       </a>
@@ -71,8 +73,6 @@ const topFaqs = faqs.slice(0, 4);
 </section>
 
 <style>
-  /* Same styles as Option 1, with these additions/tweaks */
-
   .faq-section {
     --color-bg: #fef8eb;
     --color-text: #93897e;
@@ -88,24 +88,24 @@ const topFaqs = faqs.slice(0, 4);
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 2fr; 
+    grid-template-columns: 1fr 2fr;
     gap: clamp(3rem, 5vw, 6rem);
-    align-items: start; 
+    align-items: start;
   }
 
   .faq-column--intro {
     position: sticky;
-    top: 2rem; 
+    top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--color-heading); 
+    border-top: 1px solid var(--color-heading);
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns button to left */
+    align-items: flex-start;
   }
 
   .faq-title {
     color: var(--color-heading);
-    font-size: clamp(3rem, 5vw, 4.5rem); 
+    font-size: clamp(3rem, 5vw, 4.5rem);
     letter-spacing: -0.02em;
     line-height: 1;
     margin-bottom: 1rem;
@@ -119,7 +119,6 @@ const topFaqs = faqs.slice(0, 4);
     opacity: 0.8;
   }
 
-  /* NEW BUTTON STYLE */
   .faq-link {
     display: inline-block;
     text-decoration: none;
@@ -132,7 +131,7 @@ const topFaqs = faqs.slice(0, 4);
     padding-bottom: 2px;
     transition: opacity 0.2s;
   }
-  
+
   .faq-link:hover {
     opacity: 0.6;
   }
@@ -147,9 +146,9 @@ const topFaqs = faqs.slice(0, 4);
     border-bottom: 1px solid var(--color-border);
     padding: 1.5rem 0;
   }
-  
+
   .faq-item:first-child {
-    padding-top: 0; 
+    padding-top: 0;
   }
 
   .faq-question {
@@ -190,24 +189,23 @@ const topFaqs = faqs.slice(0, 4);
     color: var(--color-text);
   }
 
-  /* Mobile Responsive */
   @media (max-width: 900px) {
     .faq-inner {
       grid-template-columns: 1fr;
       gap: 3rem;
     }
+
     .faq-column--intro {
       position: relative;
       top: 0;
       border-top: none;
-      align-items: center; /* Center align on mobile */
+      align-items: center;
       text-align: center;
     }
-    
-    /* Hide the button on mobile if you want to save space, 
-       otherwise keep it */
+
     .faq-subtitle {
-        margin-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
     }
   }
 </style>
+

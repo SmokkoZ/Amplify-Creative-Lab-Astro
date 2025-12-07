@@ -390,6 +390,12 @@ const {
   .contact-form-grid {
     grid-template-columns: 1fr;
   }
+
+  .form-input[type="date"] {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
 }
 
 .form-field {
@@ -421,6 +427,12 @@ const {
   /* #FEF8EB with a touch of transparency */
   outline: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.form-input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 0;
 }
 
 .form-input:focus,

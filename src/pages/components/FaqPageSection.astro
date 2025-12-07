@@ -19,18 +19,18 @@ interface Props {
 const { groups = [] } = Astro.props as Props;
 ---
 
-<section class="faq-page" aria-labelledby="faq-page-heading">
+<section class="faq-page" aria-labelledby="faq-page-heading" itemscope itemtype="https://schema.org/FAQPage">
   <div class="faq-page-inner">
     
     <header class="faq-page-header">
-      <p class="faq-page-kicker">Frequently Asked Questions</p>
+      <p class="faq-page-kicker">Common Questions</p>
       <h1 id="faq-page-heading" class="faq-page-title">
-        Perth photography studio FAQ
+        Perth Web Design & Photography FAQ
       </h1>
       <p class="faq-page-lede">
-        Answers to the most common questions about booking our Perth photography studio, how travel works,
-        and what you receive after your session. Everything here is based on real questions from food,
-        product, portrait and wedding clients across Perth.
+        Answers to common questions about our creative services. Whether you need 
+        <strong>high-performance web development</strong>, professional <strong>food & event photography</strong>, 
+        or a complete digital rebranding for your Perth business, we have you covered.
       </p>
     </header>
 
@@ -56,9 +56,10 @@ const { groups = [] } = Astro.props as Props;
                 group.items.map((item, index) => (
                   <details
                     class="faq-item"
-                    {...(index === 0 && group.id === 'booking-locations-logistics' ? { open: true } : {})}
+                    itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"
+                    {...(index === 0 && group.id === 'web-development' ? { open: true } : {})}
                   >
-                    <summary class="faq-question">
+                    <summary class="faq-question" itemprop="name">
                       <span>{item.question}</span>
                       <span class="faq-toggle-icon" aria-hidden="true">
                         +
@@ -66,8 +67,10 @@ const { groups = [] } = Astro.props as Props;
                     </summary>
                     <div
                       class="faq-answer"
-                      set:html={item.answer}
-                    />
+                      itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"
+                    >
+                      <div itemprop="text" set:html={item.answer} />
+                    </div>
                   </details>
                 ))
               }
@@ -79,15 +82,14 @@ const { groups = [] } = Astro.props as Props;
 
     <aside class="faq-cta">
       <div class="faq-cta-content">
-        <h2 class="faq-cta-title">Still not sure what you need?</h2>
+        <h2 class="faq-cta-title">Have a specific project in mind?</h2>
         <p class="faq-cta-text">
-          If your question is not covered here or you have a unique brief,
-          reach out with a few details about your project and we will recommend
-          the best way to work together.
+          We specialize in solving complex creative problems. If you need a custom website, 
+          a specific photoshoot brief, or both, let's chat about your goals.
         </p>
       </div>
-      <a class="faq-cta-link" href="/#work-with-us">
-        Contact the studio
+      <a class="faq-cta-link" href="/contact">
+        Start Your Project
       </a>
     </aside>
 
@@ -95,6 +97,8 @@ const { groups = [] } = Astro.props as Props;
 </section>
 
 <style>
+  /* YOUR EXISTING CSS HERE - No changes needed to CSS logic, 
+     but ensure your font-family imports support the new text. */
   .faq-page {
     --color-bg: #fef8eb;
     --color-text: #93897e;
@@ -106,17 +110,16 @@ const { groups = [] } = Astro.props as Props;
   }
 
   .faq-page-inner {
-    max-width: 800px; /* Constrained width for better readability */
+    max-width: 800px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    /* Removed the gap here to control spacing manually between sections */
   }
 
   /* --- Header --- */
   .faq-page-header {
     text-align: center;
-    max-width: 680px;
+    max-width: 720px; /* Slightly wider for the new intro text */
     margin: 0 auto 4rem auto;
   }
 
@@ -144,12 +147,17 @@ const { groups = [] } = Astro.props as Props;
     font-size: 1rem;
     line-height: 1.7;
   }
+  
+  .faq-page-lede strong {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
 
   /* --- Content Groups --- */
   .faq-page-content {
     display: flex;
     flex-direction: column;
-    gap: 3.5rem; /* Space between major sections */
+    gap: 3.5rem;
   }
 
   .faq-group-header {
@@ -170,7 +178,6 @@ const { groups = [] } = Astro.props as Props;
     gap: 0.75rem;
   }
 
-  /* New Icon Styling */
   .faq-group-icon {
     display: inline-flex;
     width: 24px;
@@ -199,7 +206,7 @@ const { groups = [] } = Astro.props as Props;
 
   .faq-item {
     border-radius: 0.5rem;
-    background: transparent; /* Cleaner look */
+    background: transparent;
     border: 1px solid rgba(21, 39, 5, 0.1);
     padding: 0;
     transition: background-color 0.2s ease, border-color 0.2s ease;
@@ -224,7 +231,7 @@ const { groups = [] } = Astro.props as Props;
     gap: 1rem;
     padding: 1rem 1.25rem;
     font-size: 1rem;
-    font-weight: 700; /* Bolder for better scanning */
+    font-weight: 700;
     color: var(--color-heading);
   }
 
@@ -253,11 +260,11 @@ const { groups = [] } = Astro.props as Props;
     color: var(--color-text);
   }
   
-  /* HTML content styling inside answer */
   .faq-answer :global(p) { margin: 0 0 0.75rem; }
   .faq-answer :global(p:last-child) { margin-bottom: 0; }
   .faq-answer :global(ul) { margin: 0 0 1rem 1.2rem; padding: 0; }
   .faq-answer :global(li) { margin: 0.25rem 0; }
+  .faq-answer :global(strong) { color: var(--color-heading); font-weight: 600; }
   .faq-answer :global(a) {
     color: var(--color-heading);
     text-decoration: underline;
@@ -269,7 +276,7 @@ const { groups = [] } = Astro.props as Props;
     text-decoration-color: var(--color-heading);
   }
 
-  /* --- Full Width CTA Banner --- */
+  /* --- CTA Banner --- */
   .faq-cta {
     margin-top: 5rem;
     border-radius: 0.75rem;
@@ -326,18 +333,15 @@ const { groups = [] } = Astro.props as Props;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
 
-  /* --- Responsive --- */
   @media (max-width: 768px) {
     .faq-cta {
       flex-direction: column;
       text-align: center;
       padding: 2rem 1.5rem;
     }
-    
     .faq-cta-link {
       width: 100%;
     }
-
     .faq-group-title {
       font-size: 1.1rem;
     }
