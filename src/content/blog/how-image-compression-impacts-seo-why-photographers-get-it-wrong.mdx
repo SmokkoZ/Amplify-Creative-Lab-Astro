@@ -18,6 +18,8 @@ tags:
 canonicalUrl: "https://amplifycreativelab.com/blog/how-image-compression-impacts-seo-why-photographers-get-it-wrong/"
 ---
 
+import { Image } from "astro:assets";
+
 <p>
   <strong>Image compression reduces file size without noticeable quality loss, directly improving page speed—a key Google ranking factor.</strong> For Perth restaurants, cafés and bars, slow‑loading images can increase bounce rates by up to 40% and push your site down in local search results. Many photographers deliver stunning high‑resolution files that are perfect for print but disastrous for the web, unintentionally harming their clients' online visibility. This guide explains the SEO impact of image compression, common mistakes photographers make, and how to balance visual quality with web performance.
 </p>
@@ -138,7 +140,7 @@ canonicalUrl: "https://amplifycreativelab.com/blog/how-image-compression-impacts
 </p>
 
 {/* Image placeholder: side‑by‑side comparison of file sizes */}
-<img
+<Image
   src="/images/blog/image-compression-before-after-perth-restaurant.jpg"
   alt="Side‑by‑side comparison of uncompressed vs compressed food photography for a Perth restaurant, showing file size reduction from 6.2 MB to 420 KB."
   width="800"
@@ -206,3 +208,5 @@ canonicalUrl: "https://amplifycreativelab.com/blog/how-image-compression-impacts
 
 <p><strong>Do I need to use WebP if my site is built on WordPress?</strong></p>
 <p>WebP is recommended but not mandatory. Many WordPress plugins (e.g., ShortPixel, Imagify) can automatically convert uploaded images to WebP and serve them to supported browsers. If you're on a custom Astro site, we bake WebP conversion into the build process.</p>
+
+

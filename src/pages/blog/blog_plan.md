@@ -33,6 +33,8 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
     *   “Perth hospitality”, “Northbridge cafés”, “Fremantle restaurants”, “WA food scene”, “Perth venues”, “Perth bars”.
         
 *   **Image Optimization Standards:**
+    *   All blog images must use Astro's `<Image />` component from `astro:assets` (hero + inline) instead of raw `<img>` tags.
+    
     
     *   Format: **WebP** (fallback to JPG as needed).
         
@@ -44,7 +46,7 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
             
     *   Compression: Lossy, ~80–85% quality.
         
-    *   **CRITICAL:** All images **must** have descriptive, human-readable alt text that naturally includes local/hospitality keywords where relevant.
+    *   **CRITICAL:** All images **must** have descriptive, human-readable alt text that naturally includes local/hospitality keywords where relevant. The user will create the image, just use a random image from the asset folder
         
     *   **🆕 GEO Update (Image Filenames):** Do not use generic names like DSC001.jpg. Use descriptive, entity-rich names: crispy-pork-belly-northbridge-restaurant.webp.
         

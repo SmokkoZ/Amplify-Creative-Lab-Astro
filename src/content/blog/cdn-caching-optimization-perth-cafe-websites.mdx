@@ -19,6 +19,8 @@ tags:
 canonicalUrl: "https://amplifycreativelab.com/blog/cdn-caching-optimization-perth-cafe-websites/"
 ---
 
+import { Image } from "astro:assets";
+
 <p>
   <strong>A CDN (Content Delivery Network) is a globally distributed server network that delivers web content faster by serving it from a location closer to your visitors.</strong> Combined with caching (storing copies of files to reduce server load) and optimization (minifying code, compressing images, and streamlining assets), these three techniques form the backbone of a high‑performance website. For Perth cafés, restaurants and bars, implementing all three can cut load times by 50–70%, directly improving Google rankings and customer conversion rates.
 </p>
@@ -144,7 +146,7 @@ canonicalUrl: "https://amplifycreativelab.com/blog/cdn-caching-optimization-pert
 </p>
 
 {/* Image placeholder: speed comparison chart */}
-<img
+<Image
   src="/images/blog/cdn-caching-optimization-fremantle-cafe-speed-chart.jpg"
   alt="Speed comparison chart showing load‑time improvement from 4.0s to 1.3s after implementing CDN, caching and optimization for a Fremantle café website."
   width="800"
@@ -212,3 +214,5 @@ canonicalUrl: "https://amplifycreativelab.com/blog/cdn-caching-optimization-pert
 
 <p><strong>Can I add a CDN to my WordPress site?</strong></p>
 <p>Absolutely. Many CDN providers offer WordPress‑specific plugins (e.g., Cloudflare, WP Rocket) that make integration straightforward. However, for optimal performance, we recommend a custom‑built Astro site where CDN, caching and optimization are deeply integrated into the architecture. (Read our comparison of <a href="/blog/astro-vs-wordpress-hospitality-websites-perth">Astro vs WordPress for hospitality websites</a>.)</p>
+
+

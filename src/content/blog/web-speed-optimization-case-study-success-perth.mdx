@@ -18,6 +18,8 @@ tags:
 canonicalUrl: "https://amplifycreativelab.com/blog/web-speed-optimization-case-study-success-perth/"
 ---
 
+import { Image } from "astro:assets";
+
 <p>
   A restaurant website that loads in under 2 seconds can increase bookings by 40% or more by reducing bounce rates, improving user experience, and boosting search rankings. This case study shows how a Success restaurant transformed their slow, bloated website into a high‑performance digital asset, resulting in a 42% increase in online bookings within four months. The optimization focused on Core Web Vitals, image compression, and modern hosting—key factors that directly influence customer decisions in Perth's competitive southern suburbs.
 </p>
@@ -74,7 +76,7 @@ canonicalUrl: "https://amplifycreativelab.com/blog/web-speed-optimization-case-s
   Our photography team reprocessed all existing menu and gallery images, exporting them at multiple breakpoints (400px, 800px, 1200px) in WebP format. We implemented Astro's <code>&lt;Image /&gt;</code> component to automatically serve the correct size and format, and set up a CDN to cache images globally.
   </p>
 
-<img src="/images/blog/web-speed-optimization-image-pipeline-success.jpg" alt="Image optimization pipeline showing before and after file sizes for a Success restaurant website." />
+<Image src="/images/blog/web-speed-optimization-image-pipeline-success.jpg" width="800" height="450" alt="Image optimization pipeline showing before and after file sizes for a Success restaurant website." />
 
 <h3>4. Code Splitting & Asset Minimization</h3>
 <p>
@@ -146,7 +148,7 @@ canonicalUrl: "https://amplifycreativelab.com/blog/web-speed-optimization-case-s
   </tbody>
 </table>
 
-<img src="/images/blog/web-speed-optimization-before-after-success.jpg" alt="Side‑by‑side comparison of the old slow website (left) and new fast website (right) on a mobile device." />
+<Image src="/images/blog/web-speed-optimization-before-after-success.jpg" width="800" height="450" alt="Side‑by‑side comparison of the old slow website (left) and new fast website (right) on a mobile device." />
 
 <p>
   The improved performance also translated into higher customer satisfaction. Post‑launch surveys showed that <strong>94% of diners found the new website “much faster and easier to use”</strong> on their phones, and 81% said the speed made them more likely to book a table directly instead of calling.
@@ -189,3 +191,5 @@ canonicalUrl: "https://amplifycreativelab.com/blog/web-speed-optimization-case-s
   <a href="/website-development">Explore our Perth restaurant website performance services</a> or{" "}
   <a href="/#work-with-us">request a free speed audit</a>. We'll analyze your current site, identify the biggest bottlenecks, and provide a clear roadmap to increase your bookings through speed.
 </p>
+
+
