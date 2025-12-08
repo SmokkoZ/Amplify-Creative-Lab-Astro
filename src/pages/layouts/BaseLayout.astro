@@ -2,16 +2,142 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
+import logoAsset from "../../assets/images/logo/amplify-creative-lab-logo-perth-WA.svg";
+
+const businessDescription =
+    "Amplify Creative Lab is a Perth-based food photography and creative studio for hospitality brands and venues.";
 
 const {
     title = "Perth Food Photographer | AmplifyCreativeLab",
-    description = "",
+    description = businessDescription,
     noIndex = false,
 } = Astro.props;
 
 const siteUrl = "https://amplifycreativelab.com";
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 const GA_MEASUREMENT_ID = "G-4KRYBTPCTN";
+
+const logoUrl = new URL(logoAsset.src, siteUrl).toString();
+
+const businessSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+            "@id": `${siteUrl}/#organization`,
+            name: "Amplify Creative Lab",
+            url: siteUrl,
+            description: businessDescription,
+            image: {
+                "@type": "ImageObject",
+                url: logoUrl,
+            },
+            logo: {
+                "@type": "ImageObject",
+                url: logoUrl,
+            },
+            email: "support@amplifycreativelab.com",
+            telephone: "+61 460 526 441", 
+            address: {
+                "@type": "PostalAddress",
+                addressLocality: "Perth",
+                addressRegion: "WA",
+                addressCountry: "AU",
+            },
+            areaServed: {
+                "@type": "AdministrativeArea",
+                name: "Perth, Western Australia",
+            },
+            geo: {
+                "@type": "GeoCoordinates",
+                latitude: -31.9523,
+                longitude: 115.8613,
+            },
+            knowsAbout: [
+                "Food photography",
+                "Product photography",
+                "Event photography",
+                "Website development",
+            ],
+            sameAs: [
+                "https://www.facebook.com/profile.php?id=61584510604585",
+                "https://au.pinterest.com/amplifycreativelab/",
+                "https://www.instagram.com/amplify_creativelab/",
+                "https://youtube.com/@amplifycreativelab?si=sQj7YEFQ4Towy1kM",
+            ],
+            makesOffer: [
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@id": `${siteUrl}/#service-food-photography`,
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@id": `${siteUrl}/#service-product-photography`,
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@id": `${siteUrl}/#service-event-photography`,
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@id": `${siteUrl}/#service-website-development`,
+                    },
+                },
+            ],
+        },
+        {
+            "@type": "Service",
+            "@id": `${siteUrl}/#service-food-photography`,
+            name: "Food Photography",
+            serviceType: "Food Photography",
+            areaServed: "Perth, Western Australia",
+            provider: {
+                "@id": `${siteUrl}/#organization`,
+            },
+            url: `${siteUrl}/perth-food-photography/`,
+        },
+        {
+            "@type": "Service",
+            "@id": `${siteUrl}/#service-event-photography`,
+            name: "Event Photography",
+            serviceType: "Event Photography",
+            areaServed: "Perth, Western Australia",
+            provider: {
+                "@id": `${siteUrl}/#organization`,
+            },
+            url: `${siteUrl}/perth-event-photography/`,
+        },
+        {
+            "@type": "Service",
+            "@id": `${siteUrl}/#service-product-photography`,
+            name: "Product Photography",
+            serviceType: "Product Photography",
+            areaServed: "Perth, Western Australia",
+            provider: {
+                "@id": `${siteUrl}/#organization`,
+            },
+            url: `${siteUrl}/perth-product-photography/`,
+        },
+        {
+            "@type": "Service",
+            "@id": `${siteUrl}/#service-website-development`,
+            name: "Website Development",
+            serviceType: "Website Development",
+            areaServed: "Perth, Western Australia",
+            provider: {
+                "@id": `${siteUrl}/#organization`,
+            },
+            url: `${siteUrl}/website-development/`,
+        },
+    ],
+};
 ---
 
 <!doctype html>
@@ -26,14 +152,17 @@ const GA_MEASUREMENT_ID = "G-4KRYBTPCTN";
         <title>{title}</title>
         {description && <meta name="description" content={description} />}
 
-        {
-            !noIndex && (
-                <meta
-                    name="robots"
-                    content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
-                />
-            )
-        }
+       {
+  noIndex ? (
+    <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+    />
+  )
+}
+
 
         <link rel="canonical" href={canonical} />
 
@@ -46,11 +175,15 @@ const GA_MEASUREMENT_ID = "G-4KRYBTPCTN";
             )
         }
         <meta property="og:url" content={canonical} />
-        <meta property="og:image" content="/images/social/share-default.png" />
-        <meta
-            property="og:image:alt"
-            content="Amplify Creative Lab – Perth food photography logo and branding"
-        />
+    <meta
+  property="og:image"
+  content={`${siteUrl}/images/social/share-default.png`}
+/>
+    <meta
+  property="og:image:alt"
+  content="Amplify Creative Lab – Perth food photography logo and branding"
+/>
+
 
         <link rel="icon" href="/favicons/favicon-32x32.png" sizes="32x32" />
         <link rel="icon" href="/favicons/favicon-180x180.png" sizes="180x180" />
@@ -71,6 +204,10 @@ const GA_MEASUREMENT_ID = "G-4KRYBTPCTN";
         <link rel="stylesheet" href="/css/main.css" />
         <meta name="theme-color" content="#FEF8EB" />
 
+        <script type="application/ld+json">
+            {JSON.stringify(businessSchema)}
+        </script>
+
         <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -84,8 +221,9 @@ const GA_MEASUREMENT_ID = "G-4KRYBTPCTN";
             gtag("config", GA_MEASUREMENT_ID);
         </script>
     </head>
-<CookieConsent />
+
     <body>
+        <CookieConsent />
         <Header />
 
         <main>
