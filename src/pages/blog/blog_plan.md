@@ -658,7 +658,7 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
 
 *   **_\[x\] UberEats vs. Direct Ordering: How Photography Impacts Commission Costs**_**
     
-*   **_**Google Maps SEO for Perth Venues: It’s Not Just About Reviews** (Focus on "Owner Photos" and "LocalBusiness" schema)_**
+*   **_\[x\] Google Maps SEO for Perth Venues: It’s Not Just About Reviews** (Focus on "Owner Photos" and "LocalBusiness" schema)_**
     
 
 **_🆕 Cluster: Menu Psychology (Thought Leadership)_**
@@ -666,7 +666,7 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
 
 **__Positioning you as a consultant, not just a service provider.__**
 
-*   **_**Menu Engineering: Using Psychology & Photography to Sell High-Margin Dishes** (The "Decoy Dish" strategy)_**
+*   **_\[x\] Menu Engineering: Using Psychology & Photography to Sell High-Margin Dishes** (The "Decoy Dish" strategy)_**
     
 
 **_🆕 Cluster: The Technical Edge (Developer Authority)_**
@@ -674,9 +674,9 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
 
 **__Targeting technical founders or frustrated managers.__**
 
-*   **_**Why 'Do It Yourself' Wix/Squarespace Sites Often Fail in Perth** (Focus on "Bloat" vs Custom Code)_**
+*   **_\[x\] Why 'Do It Yourself' Wix/Squarespace Sites Often Fail in Perth** (Focus on "Bloat" vs Custom Code)_**
     
-*   **_**Accessibility (WCAG) for Hospitality: Avoiding Lawsuits & Welcoming Everyone** (Contrast ratios, Screen readers for menus)_**
+*   **_\[x\] Accessibility (WCAG) for Hospitality: Avoiding Lawsuits & Welcoming Everyone** (Contrast ratios, Screen readers for menus)_**
     
 
 **_🆕 Cluster: Hyper-Local Guides (Traffic Magnets)_**
@@ -684,9 +684,9 @@ GLOBAL SEO & STYLE GUIDELINES (For Developers/Writers)
 
 **__These act as "Link Bait" to get local backlinks.__**
 
-*   **_**The Perth Hospitality Founder’s Digital Toolkit (2025 Edition)** (Reviews of POS, Reservation systems, and recommending your services)_**
+*   **_\[x\] The Perth Hospitality Founder’s Digital Toolkit (2025 Edition)** (Reviews of POS, Reservation systems, and recommending your services)_**
     
-*   **_**Visual Trends in the WA Food Scene: What’s Hot in 2025** (Flash photography, "Messy" plating, Video-first)_**
+*   **_\[x\] Visual Trends in the WA Food Scene: What’s Hot in 2025** (Flash photography, "Messy" plating, Video-first)_**
     
 
 **_IMPLEMENTATION CHECKLIST FOR DEVS_**

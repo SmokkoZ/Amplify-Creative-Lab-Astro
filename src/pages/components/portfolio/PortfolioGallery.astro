@@ -607,12 +607,17 @@ const portfolioItems: PortfolioItem[] = [
 <section class="portfolio-section" aria-label="Photography portfolio gallery">
   <div class="portfolio-inner">
     <div class="portfolio-filters" aria-label="Filter portfolio by category">
-      <button class="portfolio-filter is-active" data-filter="food">Food</button
+      <select
+        id="portfolio-filter-select"
+        class="portfolio-filter-select"
+        aria-label="Filter portfolio by category"
       >
-      <button class="portfolio-filter" data-filter="events">Events</button>
-      <button class="portfolio-filter" data-filter="family">Family</button>
-      <button class="portfolio-filter" data-filter="product">Product</button>
-      <button class="portfolio-filter" data-filter="portrait">Portrait</button>
+        <option value="food">Food</option>
+        <option value="events">Events</option>
+        <option value="family">Family</option>
+        <option value="product">Product</option>
+        <option value="portrait">Portrait</option>
+      </select>
     </div>
       <div class="portfolio-grid">
         {
@@ -624,14 +629,18 @@ const portfolioItems: PortfolioItem[] = [
               data-alt={item.alt}
               data-title={item.title}
               data-category={item.category}
+              data-full={item.image?.src || item.src}
             >
               <figure class="portfolio-item-figure">
                 <Image
                   src={item.image ?? item.src}
                   alt={item.alt}
+                  width={800}
+                  height={800}
                   loading="lazy"
                   decoding="async"
                   class="portfolio-item-image"
+                  sizes="(max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
                 />
                 <figcaption class="portfolio-item-overlay">
                   <span class="portfolio-item-title">{item.title}</span>
@@ -646,7 +655,7 @@ const portfolioItems: PortfolioItem[] = [
     <div class="portfolio-load-more-wrapper">
       <button
         type="button"
-        class="portfolio-load-more portfolio-filter"
+        class="portfolio-load-more portfolio-filter-select"
         data-action="load-more"
       >
         Load more
@@ -675,10 +684,9 @@ const portfolioItems: PortfolioItem[] = [
     <figure class="portfolio-lightbox__figure">
       <img
         class="portfolio-lightbox__image"
-        src=""
-        alt="Selected portfolio photograph from the gallery"
         loading="lazy"
         decoding="async"
+        alt="Selected portfolio photograph from the gallery"
       />
       <figcaption class="portfolio-lightbox__caption">
         <span class="portfolio-lightbox__title"></span>
@@ -702,6 +710,9 @@ const portfolioItems: PortfolioItem[] = [
     window.addEventListener("DOMContentLoaded", () => {
       /** @type {HTMLElement | null} */
       const grid = document.querySelector(".portfolio-grid");
+      const filterSelect = /** @type {HTMLSelectElement | null} */ (
+        document.querySelector("#portfolio-filter-select")
+      );
       const filterButtons = Array.from(
         /** @type {NodeListOf<HTMLElement>} */ (
           document.querySelectorAll(".portfolio-filter[data-filter]")
@@ -718,8 +729,14 @@ const portfolioItems: PortfolioItem[] = [
           )
         : [];
 
-      let currentFilter =
-        (filterButtons[0] && filterButtons[0].dataset.filter) || "food";
+      let currentFilter = "food";
+
+      if (filterSelect && filterSelect.value) {
+        currentFilter = filterSelect.value;
+      } else if (filterButtons[0] && filterButtons[0].dataset.filter) {
+        currentFilter = filterButtons[0].dataset.filter || "food";
+      }
+
       let visibleCount = ITEMS_PER_BATCH;
 
       /**
@@ -748,6 +765,14 @@ const portfolioItems: PortfolioItem[] = [
           loadMoreButton.style.display =
             visibleCount >= visibleItems.length ? "none" : "inline-block";
         }
+      }
+
+      if (filterSelect) {
+        filterSelect.addEventListener("change", () => {
+          currentFilter = filterSelect.value || "food";
+          visibleCount = ITEMS_PER_BATCH;
+          updateVisibility();
+        });
       }
 
       filterButtons.forEach((button) => {
@@ -805,20 +830,23 @@ const portfolioItems: PortfolioItem[] = [
         const item = items[index];
         if (!item) return;
 
-        /** @type {HTMLImageElement | null} */
-        const img = item.querySelector(".portfolio-item-image");
-        if (!img) return;
-
         currentIndex = index;
 
-        lightboxImage.src = img.src;
-        lightboxImage.alt = img.alt || "";
+        const fullSrc = item.dataset.full;
+        const alt = item.dataset.alt || "";
+
+        if (!fullSrc) return;
+
+        lightboxImage.style.opacity = "0";
+        lightboxImage.onload = () => {
+          lightboxImage.style.opacity = "1";
+        };
+
+        lightboxImage.src = fullSrc;
+        lightboxImage.alt = alt;
 
         const title =
-          item.dataset.title ||
-          item.getAttribute("data-title") ||
-          img.alt ||
-          "";
+          item.dataset.title || item.getAttribute("data-title") || alt || "";
 
         if (lightboxTitle) {
           lightboxTitle.textContent = title;
@@ -914,34 +942,41 @@ const portfolioItems: PortfolioItem[] = [
 
   .portfolio-filters {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
   }
 
-  .portfolio-filter {
-    display: inline-block;
-    margin-top: 0;
-    padding: 12px 24px;
-    max-width: 150px;
+  .portfolio-filter-label {
     font-family: "Montserrat", sans-serif;
-    font-size: 15px;
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fef8eb;
+  }
+
+  .portfolio-filter-select {
+    padding: 10px 18px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.85rem;
     font-weight: 600;
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    border: solid 3px #4a2e1c;
+    border-radius: 999px;
+    border: solid 2px #fef8eb;
     background-color: transparent;
-    color: #ffffff;
+    color: #fef8eb;
+    -webkit-text-fill-color: #fef8eb;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 50px;
   }
 
-  .portfolio-filter.is-active,
-  .portfolio-filter:hover {
-    background-color: #4a2e1c;
-    color: #ffffff;
+  
+  .portfolio-filter-select:hover,
+  .portfolio-filter-select:focus-visible {
+    background-color: #152705;
+    color: #fef8eb;
   }
 
   .portfolio-grid {
@@ -1036,6 +1071,15 @@ const portfolioItems: PortfolioItem[] = [
       width: min(100% - 2 * 1rem, 100%);
     }
 
+    .portfolio-filters {
+      justify-content: flex-start;
+    }
+
+    .portfolio-filter-select {
+      width: auto;
+      max-width: 200px;
+    }
+
     .portfolio-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -1069,8 +1113,6 @@ const portfolioItems: PortfolioItem[] = [
 
   .portfolio-lightbox__figure {
     margin: 0;
-    max-width: min(90vw, 1200px);
-    max-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1078,11 +1120,12 @@ const portfolioItems: PortfolioItem[] = [
   }
 
   .portfolio-lightbox__image {
-    max-width: 100%;
-    max-height: 80vh;
+    max-width: min(90vw, 1200px);
+    max-height: 90vh;
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: opacity 250ms ease-out;
   }
 
   .portfolio-lightbox__caption {
@@ -1151,35 +1194,19 @@ const portfolioItems: PortfolioItem[] = [
     }
   }
 
- @media (max-width: 768px) {
-  .portfolio-filters {
-    flex-wrap: nowrap;          /* keep them on one line */
-    justify-content: space-between;
-    gap: 0.3rem;                /* smaller gaps */
-  }
-
-  .portfolio-filter {
-    flex: 1 1 0;                /* let them shrink to share one row */
-    max-width: none;            /* remove the 150px cap */
-    padding: clamp(6px, 1.2vw + 2px, 8px)
-             clamp(6px, 2vw + 4px, 10px);
-    font-size: clamp(0.7rem, 2.3vw, 0.8rem);
-    letter-spacing: 0.08em;     /* slightly less spacing to save width */
-    white-space: nowrap;        /* keep label on one line */
-    text-align: center;
+@media (min-width: 769px) {
+  select.portfolio-filter-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Encoded SVG Chevron */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23fef8eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    
+    background-repeat: no-repeat;
+    background-position: right 1rem center; /* Adjusts distance from right edge */
+    background-size: 1.5em; /* Adjusts size of the arrow */
+    padding-right: 3.5rem; /* Ensures text doesn't overlap arrow */
   }
 }
-
-@media (max-width: 480px) {
-  .portfolio-filters {
-    gap: 0.15rem;
-  }
-
-  .portfolio-filter {
-    padding: 3px 4px;        /* less horizontal padding */
-    font-size: 0.55rem;      /* smaller text */
-    letter-spacing: 0.04em;  /* less spacing between letters */
-  }
-}
-
 </style>
