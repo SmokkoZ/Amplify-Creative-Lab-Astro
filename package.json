@@ -9,8 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.6",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.16.5"
+    "@fontsource/abril-fatface": "^5.2.7",
+    "@fontsource/darker-grotesque": "^5.2.8",
+    "@fontsource/montserrat": "^5.2.8",
+    "astro": "^5.16.5",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@astrojs/mdx": "^4.3.12"
